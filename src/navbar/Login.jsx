@@ -1,4 +1,8 @@
 import React, { Component } from "react";
+import axios from 'axios';
+
+//Client-side model
+
 
 class Login extends Component {
   constructor(props) {
@@ -7,38 +11,40 @@ class Login extends Component {
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.signIn = this.signIn.bind(this);
     this.state = {
-      email: '',
-      password: ''
+      email:'',
+      password:'',
+      redirect:false
     };
   }
 
-  signIn(e){
-    e.preventDefault()
-    const user = {
-      email: this.state.email,
-      password: this.state.password
-    };
-    axios.post('http://localhost:8080/login', user)
-    .then(response =>
-      {
-        this.setState(...this.state, {
-          email:email,
-          userId :result.data.patient_id
-        })
-        window.location = `/patient/${userID}` 
-      })    
-   }
+  
+handleEmailChange(e){
+  this.setState({email:e.target.value})
+}
+handlePasswordChange(e){
+    this.setState({password:e.target.value})
+}
 
-  handleEmailChange(e) {
-    this.setState({ email: e.target.value })
-  }
-  handlePasswordChange(e) {
-    this.setState({ password: e.target.value })
-  }
+signIn(e){
+  e.preventDefault()
+  const user = {
+    email: this.state.email,
+    password: this.state.password
+  };
+  axios.post('/login', user)
+  .then(response =>
+    {
+      this.setState(...this.state, {
+        email:email,
+        userId :result.data.patient_id
+      })
+      window.location = `/patient/${userID}`
+    
+    })
 
-  componentWillMount() {
+          
+}
 
-  }
   render() {
     return (
       <div>
