@@ -1,5 +1,9 @@
 import React, { Component } from "react";
-import axios from 'axios'
+import axios from 'axios';
+
+//Client-side model
+
+
 class Login extends Component {
   constructor(props) {
     super(props)
@@ -12,16 +16,7 @@ class Login extends Component {
       redirect:false
     };
   }
-  signIn(e){
-    e.preventDefault()
-    const user = {
-      email: this.state.email,
-      password: this.state.password
-    };
-    axios.post('/login', user)
-    .then(response =>this.setState(...this.state, {email:email}))
-    alert('Email address is ' + this.state.email + ' Password is ' + this.state.password);            
-}
+
   
 handleEmailChange(e){
   this.setState({email:e.target.value})
@@ -30,9 +25,26 @@ handlePasswordChange(e){
     this.setState({password:e.target.value})
 }
 
-  componentWillMount() {
+signIn(e){
+  e.preventDefault()
+  const user = {
+    email: this.state.email,
+    password: this.state.password
+  };
+  axios.post('/login', user)
+  .then(response =>
+    {
+      this.setState(...this.state, {
+        email:email,
+        userId :result.data.patient_id
+      })
+      window.location = `/patient/${userID}`
+    
+    })
 
-  }
+          
+}
+
   render() {
     return (
       <div>
