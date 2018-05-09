@@ -7,7 +7,7 @@ class PendingContracts extends Component {
   
     render() {
       return (
-   <h1>Pending Contracts</h1>
+   <h4>Pending Contracts Component</h4>
 
       );
     }

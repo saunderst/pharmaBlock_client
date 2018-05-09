@@ -10,7 +10,11 @@ const routes = [
   {
     path: "/contractspending",
   
-    main: () => <h2>Pending Contracts</h2>
+    main: () => 
+    <div>
+    <h2>Pending Contracts</h2>
+    <PendingContracts />
+    </div>
   },
   {
     path: "/contractscompleted",
@@ -25,7 +29,7 @@ const PatientSidebar = () => (
       <div
         style={{
           padding: "10px",
-          width: "40%",
+          width: "20%",
           background: "#f0f0f0"
         }}
       >
@@ -41,15 +45,6 @@ const PatientSidebar = () => (
           </li>
         </ul>
 
-        {routes.map((route, index) => (
-    
-          <Route
-            key={index}
-            path={route.path}
-            exact={route.exact}
-            component={route.sidebar}
-          />
-        ))}
       </div>
 
       <div style={{ flex: 1, padding: "10px" }}>
