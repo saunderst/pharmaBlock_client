@@ -3,11 +3,25 @@ import React, { Component } from "react";
 class Login extends Component {
   constructor(props) {
     super(props)
+    this.handleEmailChange = this.handleEmailChange.bind(this);
+    this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.state = {
-      email: "",
-      password: ""
-    }
+      email:'',
+      password:''
+    };
   }
+  signIn(){
+    alert('Email address is ' + this.state.email + ' Password is ' + this.state.password);            
+}
+
+  handleEmailChange(e){
+    this.setState({email:e.target.value})
+}
+handlePasswordChange(e){
+    this.setState({password:e.target.value})
+}
+
+
 
   componentWillMount() {
 
@@ -28,7 +42,7 @@ class Login extends Component {
                   id="email"
                   name="email"
                   placeholder="Email"
-                  value=""
+                  onChange={this.handleEmailChange} 
                   required
                 />
               </li>
@@ -40,7 +54,7 @@ class Login extends Component {
                   id="password"
                   name="password"
                   placeholder="Password"
-                  value=""
+                  onChange={this.handlePasswordChange}
                   oninput="return passwordValidation(this.value)"
                   required
                 />
@@ -53,6 +67,7 @@ class Login extends Component {
                   name="submit"
                   alt="Join"
                   value="Submit"
+                  onClick={this.signIn}
                 />
               </li>
             </ul>

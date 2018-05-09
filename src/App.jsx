@@ -20,7 +20,7 @@ const App = (props) => (
         <Route path="/" exact={true} component={HomePage} />
         <Route path="/login" component={HomePage} />
         <Route path={`/patients/${currentUser}`} component={PatientIndex} />
-        <Route path={`/pharmas/${pharmaUser}`} component={PharmaIndex} />           
+        <Route path={`/pharmas/${pharmaUser}`} component={PharmaIndex} />             
     <Footer/>
     </div>
   </Router>
