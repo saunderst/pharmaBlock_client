@@ -5,6 +5,7 @@ class Login extends Component {
     super(props)
     this.handleEmailChange = this.handleEmailChange.bind(this);
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
+    this.signIn = this.signIn.bind(this);
     this.state = {
       email:'',
       password:''
@@ -14,13 +15,12 @@ class Login extends Component {
     alert('Email address is ' + this.state.email + ' Password is ' + this.state.password);            
 }
 
-  handleEmailChange(e){
-    this.setState({email:e.target.value})
+handleEmailChange(e){
+  this.setState({email:e.target.value})
 }
 handlePasswordChange(e){
     this.setState({password:e.target.value})
 }
-
 
 
   componentWillMount() {
