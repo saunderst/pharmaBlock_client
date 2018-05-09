@@ -18,7 +18,7 @@ const App = (props) => (
         <Route path="/" exact={true} component={HomePage} />
 
         {/* <Route path="/patient" exact={true} component={PatientIndex} />  */}
-        <Route path={`/patient/${currentUser}`} component={PatientIndex} />
+        <Route path={`/patients/${currentUser}`} component={PatientIndex} />
 
         <Route path="/pharma" component={PharmaIndex} />
   
