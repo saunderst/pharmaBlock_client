@@ -24,7 +24,6 @@ const routes = [
   },
   {
     path: "/contractspending",
-  
     main: () => 
     <div>
     <h2>Pending Contracts</h2>
