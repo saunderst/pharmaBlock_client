@@ -7,22 +7,34 @@ class Login extends Component {
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.signIn = this.signIn.bind(this);
     this.state = {
-      email:'',
-      password:''
+      email: '',
+      password: ''
     };
   }
-  signIn(){
-    axios.get()
-    .then(response = >this.setState)
-    alert('Email address is ' + this.state.email + ' Password is ' + this.state.password);            
-}
 
-handleEmailChange(e){
-  this.setState({email:e.target.value})
-}
-handlePasswordChange(e){
-    this.setState({password:e.target.value})
-}
+  signIn(e){
+    e.preventDefault()
+    const user = {
+      email: this.state.email,
+      password: this.state.password
+    };
+    axios.post('http://localhost:8080/login', user)
+    .then(response =>
+      {
+        this.setState(...this.state, {
+          email:email,
+          userId :result.data.patient_id
+        })
+        window.location = `/patient/${userID}` 
+      })    
+   }
+
+  handleEmailChange(e) {
+    this.setState({ email: e.target.value })
+  }
+  handlePasswordChange(e) {
+    this.setState({ password: e.target.value })
+  }
 
   componentWillMount() {
 
@@ -43,7 +55,7 @@ handlePasswordChange(e){
                   id="email"
                   name="email"
                   placeholder="Email"
-                  onChange={this.handleEmailChange} 
+                  onChange={this.handleEmailChange}
                   required
                 />
               </li>
@@ -68,7 +80,7 @@ handlePasswordChange(e){
                   name="submit"
                   alt="Join"
                   value="Submit"
-                  onClick={this.signIn}
+                  onClick={(event) => this.signIn(event)}
                 />
               </li>
             </ul>

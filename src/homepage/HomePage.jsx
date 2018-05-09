@@ -14,7 +14,7 @@ class HomePage extends Component {
     return (
       <div>
         <div id="container-square">
-          <div class="blocks-container">
+          <div className="blocks-container">
             <Block />
           </div>
           <div>
