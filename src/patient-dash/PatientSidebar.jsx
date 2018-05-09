@@ -4,9 +4,12 @@ import PendingContracts from "./PendingContracts.jsx";
 import CompletedContracts from "./CompletedContracts.jsx";
 import AddContracts from "./AddContracts.jsx";
 import CurrentContracts from "./CurrentContracts.jsx";
+
+const currentUser = "E8b2";
+
 const routes = [
   {
-    path: "/patient",
+    path: `/patient/${currentUser}`,
     exact: true,
     main: () => 
     <div>
@@ -15,7 +18,7 @@ const routes = [
     </div>
   },
   {
-    path: "/addcontract",
+    path: `/patient/${currentUser}/addcontract`,
     main: () => 
     <div>
     <h2>Add Contract</h2>
@@ -23,7 +26,7 @@ const routes = [
     </div>
   },
   {
-    path: "/contractspending",
+    path: `/patient/${currentUser}/contractspending`,
   
     main: () => 
     <div>
@@ -32,7 +35,7 @@ const routes = [
     </div>
   },
   {
-    path: "/contractscompleted",
+    path: `/patient/${currentUser}/contractscompleted`,
     main: () => 
     <div>
     <h2>Completed Contracts</h2>
@@ -54,16 +57,16 @@ const PatientSidebar = () => (
       >
         <ul style={{ listStyleType: "none", padding: 0 }}>
           <li>
-            <Link to="/patient">Home</Link>
+            <Link to={`/patient/${currentUser}`}>Home</Link>
           </li>
           <li>
-            <Link to="/addcontract">Add Contract</Link>
+            <Link to={`/patient/${currentUser}/addcontract`}>Add Contract</Link>
           </li>
           <li>
-            <Link to="/contractspending">Pending Contracts</Link>
+            <Link to={`/patient/${currentUser}/contractspending`}>Pending Contracts</Link>
           </li>
           <li>
-            <Link to="/contractscompleted">Completed Contracts</Link>
+            <Link to={`/patient/${currentUser}/contractscompleted`}>Completed Contracts</Link>
           </li>
         </ul>
 
