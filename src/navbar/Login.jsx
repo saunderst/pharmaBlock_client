@@ -12,6 +12,8 @@ class Login extends Component {
     };
   }
   signIn(){
+    axios.get()
+    .then(response = >this.setState)
     alert('Email address is ' + this.state.email + ' Password is ' + this.state.password);            
 }
 
@@ -21,7 +23,6 @@ handleEmailChange(e){
 handlePasswordChange(e){
     this.setState({password:e.target.value})
 }
-
 
   componentWillMount() {
 
