@@ -296,3 +296,20 @@ h1 {
 	background-color:gray;
 }
 
+.card {
+	width: 26rem;
+	border:2px solid black;
+	height:35rem;
+
+	img {
+		width:25rem;
+		padding-left:5px;
+		padding-right:5px;
+		padding-top:5px;
+	}
+	.card-body {
+		padding-left:5px;
+		padding-right:5px;
+		weight:bold;
+	}
+}
