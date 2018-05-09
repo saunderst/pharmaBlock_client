@@ -2,11 +2,25 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import PendingContracts from "./PendingContracts.jsx";
 import CompletedContracts from "./CompletedContracts.jsx";
+import AddContracts from "./AddContracts.jsx";
+import CurrentContracts from "./CurrentContracts.jsx";
 const routes = [
   {
     path: "/patient",
     exact: true,
-    main: () => <h2>Patient Home</h2>
+    main: () => 
+    <div>
+    <h2>Patient Home</h2>
+    <CurrentContracts/>
+    </div>
+  },
+  {
+    path: "/addcontract",
+    main: () => 
+    <div>
+    <h2>Add Contract</h2>
+    <AddContracts/>
+    </div>
   },
   {
     path: "/contractspending",
@@ -25,6 +39,7 @@ const routes = [
     <CompletedContracts />
     </div>
   }
+  
 ];
 
 const PatientSidebar = () => (
@@ -40,6 +55,9 @@ const PatientSidebar = () => (
         <ul style={{ listStyleType: "none", padding: 0 }}>
           <li>
             <Link to="/patient">Home</Link>
+          </li>
+          <li>
+            <Link to="/addcontract">Add Contract</Link>
           </li>
           <li>
             <Link to="/contractspending">Pending Contracts</Link>
