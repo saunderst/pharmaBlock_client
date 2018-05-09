@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import PendingContracts from "./PendingContracts.jsx";
+import CompletedContracts from "./CompletedContracts.jsx";
 const routes = [
   {
     path: "/patient",
@@ -18,8 +19,11 @@ const routes = [
   },
   {
     path: "/contractscompleted",
-
-    main: () => <h2>Completed Contracts</h2>
+    main: () => 
+    <div>
+    <h2>Completed Contracts</h2>
+    <CompletedContracts />
+    </div>
   }
 ];
 
