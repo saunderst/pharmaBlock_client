@@ -38,6 +38,7 @@ signIn(e){
         email:email,
         userId :result.data.patient_id
       })
+      
       window.location = `/patient/${userID}`
     
     })

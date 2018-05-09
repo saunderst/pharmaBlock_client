@@ -1,9 +1,33 @@
 import React, { Component } from "react";
+import {
+    MenuItem,
+    Modal,
+    Button
+  } from "react-bootstrap";
 
 class ContractCard extends Component {
   constructor(props) {
     super(props);
-  }
+    this.state = {
+        show: false
+      };
+  
+      this.showModal = this.showModal.bind(this);
+      this.hideModal = this.hideModal.bind(this);
+    }
+
+    showModal() {
+        this.setState({
+          show: true
+        });
+      }
+      hideModal() {
+        this.setState({
+          show: false
+        });
+      }
+
+    
   render() {
     return (
    <div className="row">
@@ -17,7 +41,7 @@ class ContractCard extends Component {
          
         </div>
         <footer>
-          <a href="#" class="btn btn-primary" id="accept-button">Accept</a>
+          <a href="#" className="btn btn-primary" id="details-button">View Details</a>
           <div className="card-price">
               <p>$500</p>
               </div>
@@ -35,7 +59,7 @@ class ContractCard extends Component {
          
         </div>
         <footer>
-          <a href="#" class="btn btn-primary" id="accept-button">Accept</a>
+          <a href="#" class="btn btn-primary" id="details-button">View Details</a>
           <div className="card-price">
               <p>$500</p>
               </div>
@@ -53,13 +77,15 @@ class ContractCard extends Component {
          
         </div>
         <footer>
-          <a href="#" class="btn btn-primary" id="accept-button">Accept</a>
+          <a href="#" class="btn btn-primary" id="details-button">View Details</a>
           <div className="card-price">
               <p>$500</p>
               </div>
           </footer>
       </div>
       </div>
+
+
 
 
 </div>
