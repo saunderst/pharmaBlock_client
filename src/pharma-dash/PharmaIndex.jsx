@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import PharmaSidebar from './PharmaSidebar.jsx'
 
 
 class PharmaIndex extends Component {
@@ -10,7 +10,7 @@ class PharmaIndex extends Component {
     render() {
       return (
       
-         <h1>Hello Pharma</h1>
+         <PharmaSidebar />
       
       );
     }
