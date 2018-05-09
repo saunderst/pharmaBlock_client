@@ -6,6 +6,9 @@ import PatientIndex from './patient-dash/PatientIndex.jsx';
 import PharmaIndex from './pharma-dash/PharmaIndex.jsx'
 import Footer from './footer/Footer.jsx';
 
+//0xBb16559B164e4f0B872caAA640Dc1CCbf1f3E8b2
+const currentUser = "E8b2"
+
 const App = (props) => (
 
   <Router>
@@ -13,8 +16,10 @@ const App = (props) => (
     <NavBar/>
   
         <Route path="/" exact={true} component={HomePage} />
-  
-        <Route path="/patient" component={PatientIndex} />
+
+        {/* <Route path="/patient" exact={true} component={PatientIndex} />  */}
+        <Route path={`/patients/${currentUser}`} component={PatientIndex} />
+
         <Route path="/pharma" component={PharmaIndex} />
   
              

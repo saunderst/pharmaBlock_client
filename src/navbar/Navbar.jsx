@@ -40,7 +40,7 @@ class NavBar extends Component {
           <Navbar.Header>
             <Navbar.Brand>
               <a href="#">
-                <img className="brand-logo" src="docs/logo1.gif" />
+                <img className="brand-logo" src="../docs/logo1.gif" />
               </a>
               <span href="#home">PharmaBlock</span>
             </Navbar.Brand>
