@@ -31,7 +31,7 @@ signIn(e){
     email: this.state.email,
     password: this.state.password
   };
-  axios.post('/login', user)
+  axios.post('http://localhost:8080/login', user)
   .then(response =>
     {
       this.setState(...this.state, {
