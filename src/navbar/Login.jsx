@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import axios from 'axios'
 class Login extends Component {
   constructor(props) {
     super(props)
@@ -8,15 +8,21 @@ class Login extends Component {
     this.signIn = this.signIn.bind(this);
     this.state = {
       email:'',
-      password:''
+      password:'',
+      redirect:false
     };
   }
-  signIn(){
-    axios.get()
-    .then(response = >this.setState)
+  signIn(e){
+    e.preventDefault()
+    const user = {
+      email: this.state.email,
+      password: this.state.password
+    };
+    axios.post('/login', user)
+    .then(response =>this.setState(...this.state, {email:email}))
     alert('Email address is ' + this.state.email + ' Password is ' + this.state.password);            
 }
-
+  
 handleEmailChange(e){
   this.setState({email:e.target.value})
 }
