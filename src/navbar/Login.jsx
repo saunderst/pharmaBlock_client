@@ -35,10 +35,14 @@ signIn(e){
   .then(response =>
     {
       this.setState(...this.state, {
-        email:email,
-        userId :result.data.patient_id
+        email: email,
+        userId :result.data.userID
       })
-      window.location = `/patient/${userID}`
+      if (response.data.userType === "pharma") {
+        window.location = `/pharmas/${userID}`
+      } else {
+        window.location = `/patient/${userID}`
+      }
     
     })
 
