@@ -13,6 +13,7 @@ class Login extends Component {
     this.state = {
       email:'',
       password:'',
+      userId: null,
       redirect:false
     };
   }
@@ -36,12 +37,12 @@ signIn(e){
     {
       this.setState(...this.state, {
         email: email,
-        userId :result.data.userID
+        userId: response.data.userId
       })
       if (response.data.userType === "pharma") {
-        window.location = `/pharmas/${userID}`
+        window.location = `/pharmas/${this.state.userId}`
       } else {
-        window.location = `/patient/${userID}`
+        window.location = `/patients/${this.state.userId}`
       }
     
     })
