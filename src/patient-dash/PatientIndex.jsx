@@ -10,7 +10,6 @@ class PatientIndex extends Component {
     render() {
       return (
         <div>
-         <h1>Hello Patient</h1>
         <PatientSideBar />
         </div>
       );
