@@ -6,49 +6,52 @@ import axios from 'axios';
 
 class Login extends Component {
   constructor(props) {
-    super(props)
-    this.handleEmailChange = this.handleEmailChange.bind(this);
-    this.handlePasswordChange = this.handlePasswordChange.bind(this);
-    this.signIn = this.signIn.bind(this);
+    super(props);
+ 
     this.state = {
       email:'',
       password:'',
-      userId: null,
-      redirect:false
+      userId: '',
     };
   }
 
   
-handleEmailChange(e){
+handleEmailChange = (e)=>{
   this.setState({email:e.target.value})
 }
-handlePasswordChange(e){
+handlePasswordChange = (e)=>{
     this.setState({password:e.target.value})
 }
 
-signIn(e){
+signIn =(e)=>{
   e.preventDefault()
   const user = {
     email: this.state.email,
     password: this.state.password
   };
   axios.post('http://localhost:8080/login', user)
-  .then(response =>
-    {
+  .then((response) =>
+    {   
       this.setState(...this.state, {
-        email: email,
-        userId: response.data.userId
-      })
+        userId: response.data.userId,
+        email: response.data.email
+      });
+      console.log("hey this is the state", this.state)
+      console.log("hey this is props", this.props)
+      this.props.handleLogin(this.state)
+         
       if (response.data.userType === "pharma") {
         window.location = `/pharmas/${this.state.userId}`
       } else {
         window.location = `/patients/${this.state.userId}`
       }
-    
     })
+      
 
-          
-}
+ 
+  
+
+  }
 
   render() {
     return (
@@ -79,7 +82,7 @@ signIn(e){
                   name="password"
                   placeholder="Password"
                   onChange={this.handlePasswordChange}
-                  oninput="return passwordValidation(this.value)"
+                 
                   required
                 />
               </li>
@@ -91,7 +94,7 @@ signIn(e){
                   name="submit"
                   alt="Join"
                   value="Submit"
-                  onClick={(event) => this.signIn(event)}
+                  onClick= {this.signIn}
                 />
               </li>
             </ul>

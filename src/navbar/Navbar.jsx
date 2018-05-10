@@ -47,11 +47,14 @@ class NavBar extends Component {
           </Navbar.Header>
           <Nav>
             <div className="navbar-buttons">
+             
               <Button
                 bsStyle="success"
                 className="btn-block"
                 onClick={this.showModal}
-                data-target="#modal-login" >
+                data-target="#modal-login"
+      
+                >
                 Login
               </Button>
 
@@ -60,7 +63,7 @@ class NavBar extends Component {
                 onHide={this.hideModal}
                 aria-labelledby="ModalHeader"
                 id="modal-login">
-                <Login />
+                <Login handleLogin={this.props.handleLogin}/>
               </Modal>
             </div>
           </Nav>
