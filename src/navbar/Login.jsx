@@ -43,10 +43,7 @@ signIn(e){
       } else {
         window.location = `/patient/${userID}`
       }
-    
-    })
-
-          
+    })     
 }
 
   render() {
