@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import axios from 'axios';
+import {withRouter, Redirect} from 'react-router-dom'
+
 
 //Client-side model
 
@@ -41,16 +43,14 @@ signIn =(e)=>{
       this.props.handleLogin(this.state)
          
       if (response.data.userType === "pharma") {
-        window.location = `/pharmas/${this.state.userId}`
+        this.props.history.push(`/pharmas/${this.state.userId}`)
+      //  <Redirect to= {`/pharmas/${this.state.userId}`}  /> 
       } else {
-        window.location = `/patients/${this.state.userId}`
+        this.props.history.push(`/patients/${this.state.userId}`)
+        // <Redirect to= {`/patients/${this.state.userId}`}  /> 
       }
     })
-      
-
- 
-  
-
+       
   }
 
   render() {
@@ -105,4 +105,4 @@ signIn =(e)=>{
   }
 }
 
-export default Login;
+export default withRouter(Login);

@@ -6,7 +6,7 @@ import PatientIndex from './patient-dash/PatientIndex.jsx';
 import PharmaIndex from './pharma-dash/PharmaIndex.jsx'
 import Footer from './footer/Footer.jsx';
 import Login from './navbar/Login.jsx'
-
+import createBrowserHistory from 'history/createBrowserHistory'
 
 
 class App extends Component {
@@ -18,6 +18,7 @@ class App extends Component {
     email: '',
     currentUser:null
   }
+  const history = createBrowserHistory()
 }
 
 logOut(event){
@@ -28,15 +29,15 @@ logOut(event){
 
 handleLogin = (result) => {
 
-  this.setState(...this.state,{userId: result.userId, email: result.email});
+  this.setState(...this.state,{userId: result.userId, email: result.email, currentUser:true});
 }  
 
 
 render() {
 return(
-  <Router>
+  <Router history = {history}>
     <div>
-    <NavBar handleLogin={this.handleLogin}/>
+    <NavBar handleLogin={this.handleLogin} currentUser={this.state.currentUser}/>
         <Route path="/" exact={true} component={HomePage} />
         <Route exact path='/login'
                 render={(props) => <Login {...props} handleLogin={this.handleLogin}/>} />

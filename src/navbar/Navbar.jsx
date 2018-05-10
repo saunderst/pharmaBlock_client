@@ -34,6 +34,40 @@ class NavBar extends Component {
     });
   }
   render() {
+    let loginMenu
+    if (this.props.currentUser) {
+      loginMenu= (
+        <div>
+      <Button className="btn-block">
+      Logout
+      </Button> 
+      </div>
+      )
+    } else {
+      loginMenu= (
+        <div>
+        <Button
+        bsStyle="success"
+        className="btn-block"
+        onClick={this.showModal}
+        data-target="#modal-login"
+
+        >
+        Login
+      </Button>
+
+      <Modal
+        show={this.state.show}
+        onHide={this.hideModal}
+        aria-labelledby="ModalHeader"
+        id="modal-login">
+        <Login handleLogin={this.props.handleLogin}/>
+      </Modal>
+      </div>
+      )
+    }
+  
+
     return (
       <div>
         <Navbar className="main-header">
@@ -47,25 +81,10 @@ class NavBar extends Component {
           </Navbar.Header>
           <Nav>
             <div className="navbar-buttons">
-             
-              <Button
-                bsStyle="success"
-                className="btn-block"
-                onClick={this.showModal}
-                data-target="#modal-login"
-      
-                >
-                Login
-              </Button>
-
-              <Modal
-                show={this.state.show}
-                onHide={this.hideModal}
-                aria-labelledby="ModalHeader"
-                id="modal-login">
-                <Login handleLogin={this.props.handleLogin}/>
-              </Modal>
+             {loginMenu}
             </div>
+            
+
           </Nav>
         </Navbar>;
       </div>
