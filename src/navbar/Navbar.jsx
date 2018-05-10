@@ -11,6 +11,7 @@ import {
   Button
 } from "react-bootstrap";
 
+
 class NavBar extends Component {
   constructor(props) {
     super(props);
@@ -38,21 +39,21 @@ class NavBar extends Component {
     if (this.props.currentUser) {
       loginMenu= (
         <div>
-      <Button className="btn-block">
+      <Button className="btn-block"
+      onClick = {this.props.handleLogout}>
       Logout
       </Button> 
       </div>
       )
     } else {
+      console.log(this.state)
       loginMenu= (
         <div>
         <Button
         bsStyle="success"
         className="btn-block"
         onClick={this.showModal}
-        data-target="#modal-login"
-
-        >
+        data-target="#modal-login">
         Login
       </Button>
 

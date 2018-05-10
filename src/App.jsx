@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Link, Route, Redirect } from 'react-router-dom';
 import NavBar from './navbar/Navbar.jsx';
 import HomePage from './homepage/HomePage.jsx';
 import PatientIndex from './patient-dash/PatientIndex.jsx';
@@ -8,22 +8,23 @@ import Footer from './footer/Footer.jsx';
 import Login from './navbar/Login.jsx'
 import createBrowserHistory from 'history/createBrowserHistory'
 
-
 class App extends Component {
   constructor(props) {
     super(props);
   this.state = {
-  
     userId: '',
     email: '',
     currentUser:null
   }
-  const history = createBrowserHistory()
+  this.history = createBrowserHistory()
 }
 
-logOut(event){
+handleLogout =(event) =>{
   window.localStorage.clear()
   this.setState({ ...this.state, currentUser: null })
+  console.log("Hello")
+  console.log(this.state)
+  window.location = "/"
   event.stopPropagation()
 }
 
@@ -35,9 +36,10 @@ handleLogin = (result) => {
 
 render() {
 return(
-  <Router history = {history}>
+  <Router history = {this.history}>
     <div>
-    <NavBar handleLogin={this.handleLogin} currentUser={this.state.currentUser}/>
+    <NavBar handleLogin={this.handleLogin} handleLogout = {this.handleLogout}
+    currentUser={this.state.currentUser}/>
         <Route path="/" exact={true} component={HomePage} />
         <Route exact path='/login'
                 render={(props) => <Login {...props} handleLogin={this.handleLogin}/>} />

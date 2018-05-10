@@ -38,8 +38,7 @@ signIn =(e)=>{
         userId: response.data.userId,
         email: response.data.email
       });
-      console.log("hey this is the state", this.state)
-      console.log("hey this is props", this.props)
+
       this.props.handleLogin(this.state)
          
       if (response.data.userType === "pharma") {
