@@ -16,40 +16,40 @@ class Login extends Component {
       userId: '',
     };
   }
-
   
-handleEmailChange = (e)=>{
-  this.setState({email:e.target.value})
-}
-handlePasswordChange = (e)=>{
-    this.setState({password:e.target.value})
-}
+  handleEmailChange = (e)=>{
+    this.setState({email:e.target.value})
+  }
+  
+  handlePasswordChange = (e)=>{
+      this.setState({password:e.target.value})
+  }
 
-signIn =(e)=>{
-  e.preventDefault()
-  const user = {
-    email: this.state.email,
-    password: this.state.password
-  };
-  axios.post('http://localhost:8080/login', user)
-  .then((response) =>
+  signIn = (e) => {
+    e.preventDefault()
+    const user = {
+      email: this.state.email,
+      password: this.state.password
+    };
+    axios.post('http://localhost:8080/login', user)
+    .then((response) =>
     {   
       this.setState(...this.state, {
-        userId: response.data.userId,
-        email: response.data.email
+        userId: response.data.userId
       });
 
       this.props.handleLogin(this.state)
-         
+        
       if (response.data.userType === "pharma") {
+        console.log(`should redirect to /pharmas/${this.state.userId}`)
         this.props.history.push(`/pharmas/${this.state.userId}`)
-      //  <Redirect to= {`/pharmas/${this.state.userId}`}  /> 
-      } else {
+      } else if (response.data.userType === "patient") {
+        console.log(`should redirect to /patients/${this.state.userId}`)
         this.props.history.push(`/patients/${this.state.userId}`)
-        // <Redirect to= {`/patients/${this.state.userId}`}  /> 
+      } else {
+        console.log('! could not recognize userType on login !')
       }
     })
-       
   }
 
   render() {
