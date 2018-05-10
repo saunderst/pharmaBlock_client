@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ContractCard from './ContractCard.jsx';
 
 class PendingContracts extends Component {
     constructor(props) {
@@ -7,7 +8,7 @@ class PendingContracts extends Component {
   
     render() {
       return (
-   <h4>Pending Contracts Component</h4>
+        <ContractCard />
 
       );
     }

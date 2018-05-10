@@ -7,7 +7,7 @@ class AddContracts extends Component {
   
     render() {
       return (
-   <h4>Add Contracts Component</h4>
+        <a href="#" class="btn btn-primary" id="accept-button">Add Prescription</a>
 
       );
     }

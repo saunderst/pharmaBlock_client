@@ -13,18 +13,12 @@ const routes = [
     exact: true,
     main: () => 
     <div>
-    <h2>Patient Home</h2>
+    <h2>Welcome Patient {currentUser}</h2>
+    <AddContracts/>
     <CurrentContracts/>
     </div>
   },
-  {
-    path: `/patients/${currentUser}/addcontract`,
-    main: () => 
-    <div>
-    <h2>Add Contract</h2>
-    <AddContracts/>
-    </div>
-  },
+
   {
     path: `/patients/${currentUser}/contractspending`,
   
@@ -58,10 +52,7 @@ const PatientSidebar = () => (
         <ul style={{ listStyleType: "none", padding: 0 }}>
           <li>
             <Link to={`/patients/${currentUser}`}>Home</Link>
-          </li>
-          <li>
-            <Link to={`/patients/${currentUser}/addcontract`}>Add Contract</Link>
-          </li>
+          </li>        
           <li>
             <Link to={`/patients/${currentUser}/contractspending`}>Pending Contracts</Link>
           </li>
@@ -73,8 +64,7 @@ const PatientSidebar = () => (
       </div>
 
       <div style={{ flex: 1, padding: "10px" }}>
-        {routes.map((route, index) => (
-      
+        {routes.map((route, index) => (     
           <Route
             key={index}
             path={route.path}
