@@ -11,6 +11,7 @@ class MissionStatement extends Component {
           <div className="row">
             <div className="col-sm-6">
               <h2>Our Mission</h2>
+              <img src="docs/block4.gif" />
               <p>
                 Smart Contracts are awesome Smart Contracts are awesome Smart
                 Contracts are awesome Smart Contracts are awesome Smart

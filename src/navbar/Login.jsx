@@ -6,8 +6,6 @@ import Container from 'muicss/lib/react/container'
 import Col from 'muicss/lib/react/col'
 import RaisedButton from 'material-ui/RaisedButton';
 
-//Client-side model
-
 const styles ={
   button: {
     color: '#236B8E'
@@ -45,9 +43,7 @@ signIn =(e)=>{
         userId: response.data.userId,
         email: response.data.email
       });
-
-      this.props.handleLogin(this.state)
-         
+      this.props.handleLogin(this.state)       
       if (response.data.userType === "pharma") {
         this.props.history.push(`/pharmas/${this.state.userId}`)
       //  <Redirect to= {`/pharmas/${this.state.userId}`}  /> 

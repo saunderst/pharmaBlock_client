@@ -41,7 +41,6 @@ handleLogout =(event) =>{
 }
 
 handleLogin = (result) => {
-
   this.setState(...this.state,{userId: result.userId, email: result.email, currentUser:true});
 }  
 
@@ -58,8 +57,8 @@ return(
         <Route path="/" exact={true} component={HomePage} />
         <Route exact path='/login'
                 render={(props) => <Login {...props} handleLogin={this.handleLogin}/>} />
-        <PrivateRoute  path={`/patients/`} currentUser={ this.state.currentUser }  component={PatientIndex} />
-        <PrivateRoute path={`/pharmas/`} currentUser={ this.state.currentUser } component={PharmaIndex} />             
+        <Route  path={`/patients/`} currentUser={ this.state.currentUser }  component={PatientIndex} />
+        <Route path={`/pharmas/`} currentUser={ this.state.currentUser } component={PharmaIndex} />             
     <Footer/>
     </div>
     </MuiThemeProvider>
