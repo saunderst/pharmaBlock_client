@@ -1,96 +1,59 @@
 import React, { Component } from "react";
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import Login from "./Login.jsx";
-import {
-  Navbar,
-  Nav,
-  NavItem,
-  NavDropdown,
-  MenuItem,
-  Modal,
-  Button
-} from "react-bootstrap";
+import AppBar from 'material-ui/AppBar'
+import FlatButton from 'material-ui/FlatButton';
 
+
+const styles ={
+  button: {
+    color: '#236B8E'
+  },
+}
 
 class NavBar extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      show: false
-    };
-
-    this.showModal = this.showModal.bind(this);
-    this.hideModal = this.hideModal.bind(this);
-  }
-
-  showModal() {
-    this.setState({
-      show: true
-    });
-  }
-  hideModal() {
-    this.setState({
-      show: false
-    });
   }
   render() {
     let loginMenu
-    if (this.props.currentUser) {
+    if(this.props.currentUser) {
       loginMenu= (
         <div>
-      <Button className="btn-block"
-      onClick = {this.props.handleLogout}>
-      Logout
-      </Button> 
-      </div>
-      )
-    } else {
-      console.log(this.state)
-      loginMenu= (
-        <div>
-        <Button
-        bsStyle="success"
-        className="btn-block"
-        onClick={this.showModal}
-        data-target="#modal-login">
-        Login
-      </Button>
+           <FlatButton label="Logout" onClick = { this.props.handleLogout} style={styles.button}/>
+           </div>
 
-      <Modal
-        show={this.state.show}
-        onHide={this.hideModal}
-        aria-labelledby="ModalHeader"
-        id="modal-login">
-        <Login handleLogin={this.props.handleLogin}/>
-      </Modal>
+      )
+    }else {
+      loginMenu = (
+        <div>
+       <FlatButton label="Login"  containerElement={<Link to='/login'/>} style={ styles.button }/>
+      <FlatButton label="Signup"  containerElement={<Link to='/signup'/>}style={ styles.button } />
       </div>
       )
     }
-  
 
+        
     return (
-      <div>
-        <Navbar className="main-header">
-          <Navbar.Header>
-            <Navbar.Brand>
-              <a href="#">
-                <img className="brand-logo" src="../docs/logo1.gif" />
-              </a>
-              <span href="#home">PharmaBlock</span>
-            </Navbar.Brand>
-          </Navbar.Header>
-          <Nav>
-            <div className="navbar-buttons">
-             {loginMenu}
-            </div>
-            
+      <AppBar id="navbar"
 
-          </Nav>
-        </Navbar>;
-      </div>
-    );
+      iconElementLeft={
+        <a>
+        <img className="brand-image"src="/docs/logo1.gif"/>
+        <span className="brand-title">Pharma.Block</span>
+        </a>
+       }
+      iconElementRight={ 
+      
+      <div className="navbar-buttons">
+        {loginMenu} 
+        </div>
+      }
+    
+    />
+  );
+
   }
 }
-
 export default NavBar;

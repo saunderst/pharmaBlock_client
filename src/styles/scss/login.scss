@@ -1,91 +1,59 @@
 
 
-.signupSection {
-    background: url(https://9to5google.files.wordpress.com/2018/03/blockchain.jpg?quality=82&strip=all&w=1600);
-    background-repeat: no-repeat;
+
+.signin-card {
+max-width: 350px;
+border-radius: 2px;
+margin: 20px auto;
+padding: 20px;   
+background-color:white; // Blue Grey 50
+box-shadow: 0 10px 20px rgba(0, 0, 0, .19),
+0 6px 6px rgba(0, 0, 0, .23); // shadow depth 3
+}
+
+.signin-card { 
+.logo-image, h1, p {
+  text-align: center;
+}    
+}
+
+/* -- font styles ------------------------------------- */
+.display1 {
+font-size: 28px;
+font-weight: 100;
+line-height: 1.2;
+color: #236B8E;
+text-transform: inherit;
+letter-spacing: inherit;
+padding:0;
+
+}
+
+.subhead {
+font-size: 16px;
+font-weight: 300;
+line-height: 1.1;
+color: #212121;
+text-transform: inherit;
+letter-spacing: inherit;
+}
+
+
+
+.login-logo {
+  width:80px;
+}
+
+.container-login {
+  margin-top:90px;
+}
+
+.logo-image{
+  margin-bottom:0;
+}
+
+#login-button {
+  width:300px !important;
+  color:#236B8E !important;
   
-    text-align: center;
-    display: flex;
-    color: white;
-    box-shadow: 3px 10px 20px 5px rgba(0, 0, 0, .5);
-  }
-  
-  .info {
-    width: 45%;
-    background: rgba(20, 20, 20, .8);
-    padding: 30px 0;
-    border-right: 5px solid rgba(30, 30, 30, .8);
-    h2 {
-      padding-top: 30px;
-      font-weight: 300;
-    }
-    p {
-      font-size: 18px;
-    }
-    .icon {
-      font-size: 8em;
-      padding: 20px 0;
-      color: rgba(10, 180, 180, 1);
-    }
-  }
-  
-  .signupForm {
-    width: 70%;
-    padding: 30px 0;
-    background: rgba(20, 40, 40, .8);
-    transition: .2s;
-    h2 {
-      font-weight: 300;
-    }
-  }
-  
-  .inputFields {
-    margin: 15px 0;
-    font-size: 16px;
-    padding: 10px;
-    width: 250px;
-    border: 1px solid rgba(10, 180, 180, 1);
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    background: rgba(20, 20, 20, .2);
-    color: white;
-    outline: none;
-  }
-  
-  .noBullet {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  #join-btn {
-    border: 1px solid rgba(10, 180, 180, 1);
-    background: rgba(20, 20, 20, .6);
-    font-size: 18px;
-    color: white;
-    margin-top: 20px;
-    padding: 10px 50px;
-    cursor: pointer;
-    transition: .4s;
-    &:hover {
-      background: rgba(20, 20, 20, .8);
-      padding: 10px 80px;
-    }
-  }
-  
-  
-  .btn-block {
-      background-color: rgba(20, 40, 40, .8);
-      border:none;
-      
-      width:6em;
-  
-      &:hover {
-         opacity:0.7;
-         background-color:rgba(8, 109, 109, 0.8)
-      }
-  }
-  
-  .navbar-buttons {
-      margin-left:800px;
-  }
+}

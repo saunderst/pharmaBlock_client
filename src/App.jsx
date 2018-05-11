@@ -8,6 +8,10 @@ import Footer from './footer/Footer.jsx';
 import Login from './navbar/Login.jsx'
 import createBrowserHistory from 'history/createBrowserHistory'
 
+import injectTapEventPlugin from 'react-tap-event-plugin'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+injectTapEventPlugin();
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -34,9 +38,12 @@ handleLogin = (result) => {
 }  
 
 
+
 render() {
+  
 return(
   <Router history = {this.history}>
+  <MuiThemeProvider>
     <div>
     <NavBar handleLogin={this.handleLogin} handleLogout = {this.handleLogout}
     currentUser={this.state.currentUser}/>
@@ -47,6 +54,7 @@ return(
         <Route path={`/pharmas/:id`} component={PharmaIndex} />             
     <Footer/>
     </div>
+    </MuiThemeProvider>
   </Router>
   
       )

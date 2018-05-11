@@ -1,11 +1,18 @@
 import React, { Component } from "react";
 import axios from 'axios';
 import {withRouter, Redirect} from 'react-router-dom'
-
+import TextField from 'material-ui/TextField'
+import Container from 'muicss/lib/react/container'
+import Col from 'muicss/lib/react/col'
+import RaisedButton from 'material-ui/RaisedButton';
 
 //Client-side model
 
-
+const styles ={
+  button: {
+    color: '#236B8E'
+  },
+}
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -54,52 +61,36 @@ signIn =(e)=>{
 
   render() {
     return (
-      <div>
-        <div className="signupSection">
-          <div className="info" />
-          <form action="#" method="POST" class="signupForm" name="signupform">
-            <h2>Login</h2>
-            <ul className="noBullet">
-              <li>
-                <label for="email" />
-                <input
-                  type="email"
-                  class="inputFields"
-                  id="email"
-                  name="email"
-                  placeholder="Email"
-                  onChange={this.handleEmailChange}
-                  required
-                />
-              </li>
-              <li>
-                <label for="password" />
-                <input
-                  type="password"
-                  class="inputFields"
-                  id="password"
-                  name="password"
-                  placeholder="Password"
-                  onChange={this.handlePasswordChange}
-                 
-                  required
-                />
-              </li>
+  
+      <Container
+      className="login-container"
+      fluid={true}
+      style={{backgroundColor: '#2E4A62'}}>
+<div className="container-login">
+<div id="login" class="signin-card">
+  <div className="logo-image">
+  <img src="docs/logo1.gif" className="login-logo" alt="Logo" title="Logo" width="138"/>
+  </div>
+  <h1 className="display1">Login</h1>
+  <form action="" method="" className="" role="form">
+    <div id="form-login-username" className="form-group">
+      <input onChange={this.handleEmailChange} type="email" className="form-control" name="email" type="text" placeholder="Email" />
+   
+      <label for="email" class="float-label">login</label>
+    </div>
+    <div id="form-login-password" class="form-group">
+      <input onChange={this.handlePasswordChange} id="passwd" type="password" className="form-control" name="password" type="password" placeholder="Password" required />
+      <label for="password" className="float-label">password</label>
+    </div>  
+    <div>
+      <RaisedButton onClick= {this.signIn} id="login-button" label="Login" type="submit" name="Submit" />  
+	  </div>
+  </form>
+</div>
+</div>
+</Container>
 
-              <li id="center-btn">
-                <input
-                  type="submit"
-                  id="join-btn"
-                  name="submit"
-                  alt="Join"
-                  value="Submit"
-                  onClick= {this.signIn}
-                />
-              </li>
-            </ul>
-          </form>
-        </div>
-      </div>
+     
     );
   }
 }

@@ -1,7 +1,7 @@
 
 @import url('https://fonts.googleapis.com/css?family=Exo+2:900');
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,400i,800,900,900i');
-
+@import url('https://fonts.googleapis.com/css?family=Hind+Vadodara:400,500,600');
 * {
   font-family:'Raleway';
 }
@@ -26,7 +26,7 @@ h1 {
 	align-content: center;
 	justify-content: center;
 	background: {
-		image:  url(https://www.etftrends.com/wp-content/uploads/2018/03/How-Blockchain-Technology-Can-Improve-Real-Estate.jpg);
+		image:  url(https://images.unsplash.com/photo-1483094035713-218a81c0d971?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6404d9c8f0f00919533121363b194f4c&auto=format&fit=crop&w=746&q=80);
 		blend-mode: multiply;
     size: cover;
   }
@@ -326,3 +326,23 @@ h1 {
 }
 }
 
+#navbar{
+	background-color: white !important;
+	position:fixed !important;
+}
+
+.brand-image {
+	width:50px;
+}
+
+.brand-title {
+	font-family: 'Hind Vadodara', sans-serif;
+	font-weight:400; 
+	font-size:2rem;
+	color:#236B8E
+}
+
+.navbar-buttons {
+	display:inline-block;
+	margin-right: 70px;
+}

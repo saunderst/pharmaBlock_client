@@ -18,7 +18,7 @@ class HomePage extends Component {
             <Block />
           </div>
           <div>
-            <h1>PharmaBlock</h1>
+            
             <h3>
               Connecting patients and pharmaceutical providers with smart
               contracts
