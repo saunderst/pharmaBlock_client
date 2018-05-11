@@ -12,6 +12,14 @@ import injectTapEventPlugin from 'react-tap-event-plugin'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 injectTapEventPlugin();
 
+const PrivateRoute = ({ component: Component, ...rest }) => (
+  <Route {...rest} render={(props) => (
+    props.currentUser
+      ? <Component {...props} />
+      : <Redirect to='/login' />
+  )} />
+)
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -50,8 +58,8 @@ return(
         <Route path="/" exact={true} component={HomePage} />
         <Route exact path='/login'
                 render={(props) => <Login {...props} handleLogin={this.handleLogin}/>} />
-        <Route path={`/patients/:id`} component={PatientIndex} />
-        <Route path={`/pharmas/:id`} component={PharmaIndex} />             
+        <PrivateRoute  path={`/patients/`} currentUser={ this.state.currentUser }  component={PatientIndex} />
+        <PrivateRoute path={`/pharmas/`} currentUser={ this.state.currentUser } component={PharmaIndex} />             
     <Footer/>
     </div>
     </MuiThemeProvider>
