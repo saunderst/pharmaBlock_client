@@ -4,8 +4,11 @@ import PatientSidebar from "./PatientSidebar.jsx";
 import Container from 'muicss/lib/react/container'
 import PendingContracts from "./PendingContracts.jsx";
 import CompletedContracts from "./CompletedContracts.jsx";
+import PatientHome from "./PatientHome.jsx";
 import AddContracts from "./AddContracts.jsx";
-import Container from 'muicss/lib/react/container';
+import Row from 'muicss/lib/react/row';
+import Col from 'muicss/lib/react/col';
+
 class PatientIndex extends Component {
     constructor(props) {
       super(props);
@@ -17,12 +20,12 @@ class PatientIndex extends Component {
       return (
         <Router>
         <div>
-        <PatientSidebar userName={this.props.userName} />
-        <div className="patient-container">
-        <Route exact path="patient/add"  component={AddContracts} />
+        <div>
+        <Route exact path="/patient"  render={(props) => <PatientHome {...props}  userName={this.props.userName}/>} />
         <Route exact path='/patient/pending' component={PendingContracts} />
         <Route exact path='/patient/completed' component={CompletedContracts} />
-        </div>   
+        </div>         
+        <PatientSidebar/>
         </div>
         </Router>
       );

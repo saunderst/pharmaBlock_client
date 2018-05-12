@@ -35,14 +35,10 @@ class PatientSidebar extends Component  {
    
   
     <Divider />
-    <Link to="/patients">
+    <Link to="/patient">
     <MenuItem>Home</MenuItem>
     </Link>
-    <Divider />
-    <Link to="/patient/add">
-    <MenuItem>Add Prescription</MenuItem>
-    </Link>
-    <Divider />   
+    <Divider /> 
     <Link to="/patient/pending">
     <MenuItem>Pending Prescriptions</MenuItem>
      </Link> 
@@ -50,7 +46,7 @@ class PatientSidebar extends Component  {
     <Link to="/patient/completed">
     <MenuItem>Completed Prescriptions</MenuItem>
      </Link> 
-     <Divider />   
+     <Divider/>   
     </Menu>
   </Drawer> 
  </div>

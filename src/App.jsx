@@ -28,7 +28,7 @@ class App extends Component {
     userId: '',
     email: '',
     currentUser:null,
-    userName: ''
+    userName:''
   }
   this.history = createBrowserHistory()
 }
@@ -65,12 +65,11 @@ return(
    <div style={{ paddingTop: 90 }}></div>
     <main>
       <Switch>
-
         <Route path="/" exact={true} component={HomePage} />
         <Route exact path='/login'
                 render={(props) => <Login {...props} handleLogin={this.handleLogin}  />} />
         <Route  path='/patient' render={(props) => <PatientIndex {...props} userName={this.state.userName} userId={this.state.userId}/>} />
-        <Route path='/pharma'  render={(props) => <PharmaIndex {...props} userId={this.state.userId}/>} />   
+        <Route path='/pharma'  render={(props) => <PharmaIndex {...props} userId={this.state.userId} userName={this.state.userName}/>} />   
     <Footer/>
     </Switch>
     </main>

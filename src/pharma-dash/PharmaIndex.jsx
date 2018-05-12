@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import PharmaSidebar from './PharmaSidebar.jsx'
-
-
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import PharmaHome from "./PharmaHome.jsx";
+import PharmaCompleted from "./PharmaCompleted.jsx";
+import PharmaPending from "./PharmaPending.jsx";
+import PharmaActive from "./PharmaActive.jsx";
 class PharmaIndex extends Component {
     constructor(props) {
       super(props);
@@ -10,7 +13,17 @@ class PharmaIndex extends Component {
     render() {
       return (
       
-         <PharmaSidebar />
+        <Router>
+        <div>
+        <div>
+        <Route exact path="/pharma"  render={(props) => <PharmaHome {...props}  userName={this.props.userName}/>} />
+        <Route exact path='/pharma/pending' component={PharmaPending} />
+        <Route exact path='/pharma/active' component={PharmaActive} />
+        <Route exact path='/pharma/completed' component={PharmaCompleted} />
+        </div>         
+        <PharmaSidebar/>
+        </div>
+        </Router>
       
       );
     }

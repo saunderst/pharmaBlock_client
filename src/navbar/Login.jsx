@@ -84,7 +84,7 @@ signIn =(e)=>{
       <label for="password" className="float-label">password</label>
     </div>  
     <div>
-      <RaisedButton onClick= {this.signIn} id="login-button" label="Login" type="submit" name="Submit" />  
+      <RaisedButton onClick= {this.signIn} className="login-button" label="Login" type="submit" name="Submit" />  
 	  </div>
   </form>
 </div>

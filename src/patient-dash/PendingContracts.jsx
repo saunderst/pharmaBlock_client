@@ -8,7 +8,9 @@ class PendingContracts extends Component {
   
     render() {
       return (
+        <div className="pending-contracts-container">
         <ContractCard />
+        </div>
 
       );
     }
