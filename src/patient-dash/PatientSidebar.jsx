@@ -4,77 +4,60 @@ import PendingContracts from "./PendingContracts.jsx";
 import CompletedContracts from "./CompletedContracts.jsx";
 import AddContracts from "./AddContracts.jsx";
 import CurrentContracts from "./CurrentContracts.jsx";
+import Divider from 'material-ui/Divider';
+import Drawer from 'material-ui/Drawer';
+import RaisedButton from 'material-ui/RaisedButton';
+import MenuItem from 'material-ui/MenuItem';
+import Menu from 'material-ui/Menu';
 
-const currentUser = "E8b2";
 
-const routes = [
-  {
-    path: `/patients/${currentUser}`,
-    exact: true,
-    main: () => 
-    <div>
-    <h2>Welcome Patient {currentUser}</h2>
-    <AddContracts/>
-    <CurrentContracts/>
-    </div>
-  },
-
-  {
-    path: `/patients/${currentUser}/contractspending`,
+class PatientSidebar extends Component  {
   
-    main: () => 
-    <div>
-    <h2>Pending Contracts</h2>
-    <PendingContracts />
-    </div>
-  },
-  {
-    path: `/patients/${currentUser}/contractscompleted`,
-    main: () => 
-    <div>
-    <h2>Completed Contracts</h2>
-    <CompletedContracts />
-    </div>
+  constructor(props) {
+    super(props);
+    this.state = {open:true};
   }
+  handleToggle = () => this.setState({open: !this.state.open});
+  render(){
+
+  return (
   
-];
+    <div>
+    <Drawer open={this.state.open} id="patient-drawer">
+       <div className="sidebar-logo">
+        <a>
+        <img className="brand-image"src="/docs/logo1.gif"/>
+        <span className="brand-title">Pharma.Block</span>
+        </a>
+        </div>
+        <Divider />
+    <Menu>
+   
+  
+    <Divider />
+    <Link to="/patients">
+    <MenuItem>Home</MenuItem>
+    </Link>
+    <Divider />
+    <Link to="/patient/add">
+    <MenuItem>Add Prescription</MenuItem>
+    </Link>
+    <Divider />   
+    <Link to="/patient/pending">
+    <MenuItem>Pending Prescriptions</MenuItem>
+     </Link> 
+     <Divider />   
+    <Link to="/patient/completed">
+    <MenuItem>Completed Prescriptions</MenuItem>
+     </Link> 
+     <Divider />   
+    </Menu>
+  </Drawer> 
+ </div>
+ 
 
-const PatientSidebar = () => (
-  <Router>
-    <div style={{ display: "flex" }}>
-      <div
-        style={{
-          padding: "10px",
-          width: "20%",
-          background: "#f0f0f0"
-        }}
-      >
-        <ul style={{ listStyleType: "none", padding: 0 }}>
-          <li>
-            <Link to={`/patients/${currentUser}`}>Home</Link>
-          </li>        
-          <li>
-            <Link to={`/patients/${currentUser}/contractspending`}>Pending Contracts</Link>
-          </li>
-          <li>
-            <Link to={`/patients/${currentUser}/contractscompleted`}>Completed Contracts</Link>
-          </li>
-        </ul>
-
-      </div>
-
-      <div style={{ flex: 1, padding: "10px" }}>
-        {routes.map((route, index) => (     
-          <Route
-            key={index}
-            path={route.path}
-            exact={route.exact}
-            component={route.main}
-          />
-        ))}
-      </div>
-    </div>
-  </Router>
-);
+  )
+}
+}
 
 export default PatientSidebar;

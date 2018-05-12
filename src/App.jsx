@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Link, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Link, Route, Redirect, Switch} from 'react-router-dom';
 import NavBar from './navbar/Navbar.jsx';
 import HomePage from './homepage/HomePage.jsx';
 import PatientIndex from './patient-dash/PatientIndex.jsx';
@@ -8,6 +8,7 @@ import Footer from './footer/Footer.jsx';
 import Login from './navbar/Login.jsx'
 import createBrowserHistory from 'history/createBrowserHistory'
 
+// 
 import injectTapEventPlugin from 'react-tap-event-plugin'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 injectTapEventPlugin();
@@ -26,7 +27,8 @@ class App extends Component {
   this.state = {
     userId: '',
     email: '',
-    currentUser:null
+    currentUser:null,
+    userName: ''
   }
   this.history = createBrowserHistory()
 }
@@ -34,19 +36,25 @@ class App extends Component {
 handleLogout =(event) =>{
   window.localStorage.clear()
   this.setState({ ...this.state, currentUser: null })
-  console.log("Hello")
-  console.log(this.state)
+ 
   window.location = "/"
   event.stopPropagation()
 }
 
 handleLogin = (result) => {
-  this.setState(...this.state,{userId: result.userId, email: result.email, currentUser:true});
+
+  this.setState(...this.state,{userId: result.userId, email: result.email, currentUser:true, userName: result.userName});
 }  
 
 
 
 render() {
+  const LoginContainer = () => (
+    <div className="container">
+      <Route exact path="/" render={() => <Redirect to="/login" />} />
+     
+    </div>
+  )
   
 return(
   <Router history = {this.history}>
@@ -54,13 +62,19 @@ return(
     <div>
     <NavBar handleLogin={this.handleLogin} handleLogout = {this.handleLogout}
     currentUser={this.state.currentUser}/>
+   <div style={{ paddingTop: 90 }}></div>
+    <main>
+      <Switch>
+
         <Route path="/" exact={true} component={HomePage} />
         <Route exact path='/login'
-                render={(props) => <Login {...props} handleLogin={this.handleLogin}/>} />
-        <Route  path={`/patients/`} currentUser={ this.state.currentUser }  component={PatientIndex} />
-        <Route path={`/pharmas/`} currentUser={ this.state.currentUser } component={PharmaIndex} />             
+                render={(props) => <Login {...props} handleLogin={this.handleLogin}  />} />
+        <Route  path='/patient' render={(props) => <PatientIndex {...props} userName={this.state.userName} userId={this.state.userId}/>} />
+        <Route path='/pharma'  render={(props) => <PharmaIndex {...props} userId={this.state.userId}/>} />   
     <Footer/>
-    </div>
+    </Switch>
+    </main>
+   </div>
     </MuiThemeProvider>
   </Router>
   

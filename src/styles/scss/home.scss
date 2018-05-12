@@ -19,6 +19,9 @@ h1 {
 	text-shadow: 0px 4px 48px rgba(255,255,255,0.2);
 }
 
+#patients {
+	color:gray;
+}
 
 #container-square{
 	position: relative;
@@ -345,4 +348,12 @@ h1 {
 .navbar-buttons {
 	display:inline-block;
 	margin-right: 70px;
+}
+
+.sidebar-logo {
+	height:75px;
+}
+
+.patient-container {
+	margin-left:300px;
 }

@@ -5,6 +5,7 @@ import TextField from 'material-ui/TextField'
 import Container from 'muicss/lib/react/container'
 import Col from 'muicss/lib/react/col'
 import RaisedButton from 'material-ui/RaisedButton';
+import { ClientResponse } from "http";
 
 const styles ={
   button: {
@@ -19,6 +20,7 @@ class Login extends Component {
       email:'',
       password:'',
       userId: '',
+      userName:''
     };
   }
 
@@ -34,21 +36,24 @@ signIn =(e)=>{
   e.preventDefault()
   const user = {
     email: this.state.email,
-    password: this.state.password
+    password: this.state.password,
+   
   };
   axios.post('http://localhost:8080/login', user)
   .then((response) =>
     {   
+    console.log(response)
       this.setState(...this.state, {
         userId: response.data.userId,
-        email: response.data.email
+        email: response.data.email,
+        userName: response.data.userName
       });
       this.props.handleLogin(this.state)       
       if (response.data.userType === "pharma") {
-        this.props.history.push(`/pharmas/${this.state.userId}`)
+        this.props.history.push(`/pharma`)
       //  <Redirect to= {`/pharmas/${this.state.userId}`}  /> 
       } else {
-        this.props.history.push(`/patients/${this.state.userId}`)
+        this.props.history.push(`/patient`)
         // <Redirect to= {`/patients/${this.state.userId}`}  /> 
       }
     })
