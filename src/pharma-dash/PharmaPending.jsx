@@ -9,6 +9,7 @@ class PharmaPending extends Component {
     render() {
       return (
         <div className="pharma-pending-container">
+        <h2> Pending Prescription Bids</h2>
         <PharmaCard />
         </div>
 

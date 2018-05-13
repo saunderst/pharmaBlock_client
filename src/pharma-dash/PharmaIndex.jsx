@@ -5,6 +5,7 @@ import PharmaHome from "./PharmaHome.jsx";
 import PharmaCompleted from "./PharmaCompleted.jsx";
 import PharmaPending from "./PharmaPending.jsx";
 import PharmaActive from "./PharmaActive.jsx";
+import PharmaProducts from "./PharmaProducts.jsx";
 class PharmaIndex extends Component {
     constructor(props) {
       super(props);
@@ -20,6 +21,7 @@ class PharmaIndex extends Component {
         <Route exact path='/pharma/pending' component={PharmaPending} />
         <Route exact path='/pharma/active' component={PharmaActive} />
         <Route exact path='/pharma/completed' component={PharmaCompleted} />
+        <Route exact path='/pharma/products' component={PharmaProducts} />
         </div>         
         <PharmaSidebar/>
         </div>

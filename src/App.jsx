@@ -6,6 +6,7 @@ import PatientIndex from './patient-dash/PatientIndex.jsx';
 import PharmaIndex from './pharma-dash/PharmaIndex.jsx'
 import Footer from './footer/Footer.jsx';
 import Login from './navbar/Login.jsx'
+import Signup from './navbar/Signup.jsx'
 import createBrowserHistory from 'history/createBrowserHistory'
 
 // 
@@ -66,6 +67,7 @@ return(
     <main>
       <Switch>
         <Route path="/" exact={true} component={HomePage} />
+        <Route path="/signup" component={Signup} />
         <Route exact path='/login'
                 render={(props) => <Login {...props} handleLogin={this.handleLogin}  />} />
         <Route  path='/patient' render={(props) => <PatientIndex {...props} userName={this.state.userName} userId={this.state.userId}/>} />

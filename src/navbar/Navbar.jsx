@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 import Login from "./Login.jsx";
+import Signup from "./Signup.jsx";
 import AppBar from 'material-ui/AppBar'
 import FlatButton from 'material-ui/FlatButton';
 
