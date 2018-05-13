@@ -1,5 +1,25 @@
 import React, { Component } from "react";
-import PharmaCard from './PharmaCard.jsx';
+import {GridList, GridTile} from 'material-ui/GridList';
+import axios from 'axios';
+import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import FlatButton from 'material-ui/FlatButton';
+import Divider from 'material-ui/Divider';
+
+const styles = {
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    // justifyContent: 'space-around',
+    
+  },
+  gridList: {
+    width: 1000,
+    height: 400,
+    overflowY: 'auto',
+    
+  },
+};
+
 
 class PharmaPending extends Component {
     constructor(props) {
@@ -8,13 +28,59 @@ class PharmaPending extends Component {
    
       }
     } 
+    componentDidMount() { 
+      axios.get(`http://localhost:8080/pharmacos/${this.props.userId}/contracts`)
+      .then((response) => 
+      { console.log(response)
+         this.setState(...this.state,{ contracts: response.data })})
+     
+      .catch(e => console.log('Error'))
+     }
 
+<<<<<<< HEAD
  
+=======
+  
+>>>>>>> feature/contracts
     render() {
       return (
         <div className="pharma-pending-container">
         <h2> Pending Prescription Bids</h2>
+<<<<<<< HEAD
         <PharmaCard userId={this.props.userId}/>
+=======
+        <div style={styles.root}>
+    <GridList
+      cols={4}
+      cellHeight={100}
+      padding={9}
+      style={styles.gridList}
+       
+    >
+      {this.state.contracts.map((contract) => (
+     <Card>
+     <CardMedia>
+       <img src={`/docs/drugs/${contract.image_url}`}  alt="" className="pending-contract-card" />
+     </CardMedia>
+     <CardTitle title={contract.brand_name}  />
+     <CardText>
+    {contract.description}
+    <Divider />
+    <p>{contract.price_per_mg} cost per contract</p>
+    <p>{contract.dose} Dose</p>
+     </CardText>
+     
+     <CardActions>
+       <FlatButton label="Flag" 
+       backgroundColor="#DC143C"
+       icon={<i class="far fa-flag"></i>} />   
+     
+     </CardActions>
+   </Card>
+      ))}
+    </GridList>
+  </div>
+>>>>>>> feature/contracts
         </div>
 
       );

@@ -24,17 +24,29 @@ class PharmaCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
+<<<<<<< HEAD
     contracts:[]
+=======
+    contracts: [],
+>>>>>>> feature/contracts
       };
-  
-     
+      
     }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> feature/contracts
     componentWillMount() { 
       axios.get(`http://localhost:8080/pharmacos/${this.props.userId}/contracts`)
       .then((response) => 
       { console.log(response)
+<<<<<<< HEAD
          this.setState(...this.state, { contracts: response.data })})    
+=======
+         this.setState(...this.state,{ contracts: response.data })})
+     
+>>>>>>> feature/contracts
       .catch(e => console.log('Error'))
      }
  
