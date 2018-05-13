@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ContractCard from './PharmaCard.jsx';
+
 
 class PharmaActive extends Component {
     constructor(props) {
