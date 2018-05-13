@@ -14,7 +14,7 @@ class PharmaPending extends Component {
         axios.get(`http://localhost:8080/pharmacos/${this.props.userId}/contracts`)
         .then((response) => 
         { console.log(response)
-           this.setState({ contracts: response.data })})
+           this.setState(...this.state,{ contracts: response.data })})
        
         .catch(e => console.log('Error'))
        }
