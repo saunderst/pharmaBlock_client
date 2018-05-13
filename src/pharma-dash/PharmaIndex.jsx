@@ -23,7 +23,7 @@ class PharmaIndex extends Component {
         <Route exact path='/pharma/pending' render={(props) => <PharmaPending {...props}  userId={this.props.userId}/>} />
         <Route exact path='/pharma/active' render={(props) => <PharmaActive {...props}   userId={this.props.userId}/>} />
         <Route exact path='/pharma/completed' render={(props) => <PharmaCompleted {...props} userId={this.props.userId}/>} />
-        <Route exact path='/pharma/products' component={PharmaProducts} />
+        <Route exact path='/pharma/products' render={(props) => <PharmaProducts {...props} userId={this.props.userId}/>}/>
         </div>         
         <PharmaSidebar/>
         </div>
