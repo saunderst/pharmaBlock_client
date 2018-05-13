@@ -68,7 +68,7 @@ signIn =(e)=>{
       fluid={true}
       style={{backgroundColor: '#2E4A62'}}>
 <div className="container-login">
-<div id="login" class="signin-card">
+<div id="login" className="signin-card">
   <div className="logo-image">
   <img src="docs/logo1.gif" className="login-logo" alt="Logo" title="Logo" width="138"/>
   </div>
