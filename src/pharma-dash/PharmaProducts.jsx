@@ -15,9 +15,9 @@ const styles = {
   gridList: {
     width: 1000,
     height: 450,
-    overflowY: 'auto',
-    
+    overflowY: 'auto',  
   },
+
 };
 
 class PharmaProducts extends Component {
@@ -49,25 +49,25 @@ class PharmaProducts extends Component {
   <div style={styles.root}>
     <GridList
       cols={3}
-      cellHeight={200}
+      cellHeight={230}
       padding={5}
       style={styles.gridList}
-     
-      
-    >
+     >
       {this.state.products.map((product) => (
-        <GridTile
+        <GridTile        
           key={product.image_url}
           title={product.brand_name}
+          titleStyle={styles.titleStyle} 
           price={product.price_per_mg}
-          description={product.description}
+          subtitleStyle={styles.subtitleStyle}
+          subtitle={<span className="description"><b>{product.description}<div className="price-product">$ {product.price_per_mg}</div></b></span>          
+        }
           actionPosition="left"
           titlePosition="bottom"
-          titleBackground="linear-gradient(to bottom, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 70%,rgba(0,0,0,0) 100%)"
+          titleBackground="linear-gradient(to bottom, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.7) 70%,rgba(0,0,0,0) 100%)"
           cols={product.featured ? 2 : 1}
           rows={product.featured ? 2 : 1}
-        
-        >
+          > 
           <img src={`/docs/drugs/${product.image_url}`} />
         </GridTile>
       ))} 

@@ -69,12 +69,21 @@ class PharmaCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-    
+    contracts: [],
       };
-  
-     
+      
     }
 
+
+    componentWillMount() { 
+      axios.get(`http://localhost:8080/pharmacos/${this.props.userId}/contracts`)
+      .then((response) => 
+      { console.log(response)
+         this.setState(...this.state,{ contracts: response.data })})
+     
+      .catch(e => console.log('Error'))
+     }
+ 
   
     
   render() {
