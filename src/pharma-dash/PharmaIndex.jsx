@@ -6,6 +6,8 @@ import PharmaCompleted from "./PharmaCompleted.jsx";
 import PharmaPending from "./PharmaPending.jsx";
 import PharmaActive from "./PharmaActive.jsx";
 import PharmaProducts from "./PharmaProducts.jsx";
+
+
 class PharmaIndex extends Component {
     constructor(props) {
       super(props);
@@ -17,10 +19,10 @@ class PharmaIndex extends Component {
         <Router>
         <div>
         <div>
-        <Route exact path="/pharma"  render={(props) => <PharmaHome {...props}  userName={this.props.userName}/>} />
-        <Route exact path='/pharma/pending' component={PharmaPending} />
-        <Route exact path='/pharma/active' component={PharmaActive} />
-        <Route exact path='/pharma/completed' component={PharmaCompleted} />
+        <Route exact path="/pharma"  render={(props) => <PharmaHome {...props}  userName={this.props.userName} userId={this.props.userId}/>} />
+        <Route exact path='/pharma/pending' render={(props) => <PharmaPending {...props}  userId={this.props.userId}/>} />
+        <Route exact path='/pharma/active' render={(props) => <PharmaActive {...props}   userId={this.props.userId}/>} />
+        <Route exact path='/pharma/completed' render={(props) => <PharmaCompleted {...props} userId={this.props.userId}/>} />
         <Route exact path='/pharma/products' component={PharmaProducts} />
         </div>         
         <PharmaSidebar/>

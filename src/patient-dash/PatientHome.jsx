@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import RaisedButton from 'material-ui/RaisedButton';
-
+import CurrentContracts from "./CurrentContracts.jsx";
 const styles = {
    
     button: {
@@ -25,6 +25,9 @@ class PatientHome extends Component {
         <div className="patient-home-container">
         <h3>Welcome Back {this.props.userName}</h3>
         <RaisedButton label="Add Prescription" primary={true}/>
+        <div className="current-contracts-container">
+       <CurrentContracts userId={this.props.userId} />
+        </div>
         </div>
        
       );

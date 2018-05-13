@@ -21,7 +21,7 @@ class PatientIndex extends Component {
         <Router>
         <div>
         <div>
-        <Route exact path="/patient"  render={(props) => <PatientHome {...props}  userName={this.props.userName}/>} />
+        <Route exact path="/patient"  render={(props) => <PatientHome {...props}  userName={this.props.userName} userId={this.props.userId}/>} />
         <Route exact path='/patient/pending' component={PendingContracts} />
         <Route exact path='/patient/completed' component={CompletedContracts} />
         </div>         
