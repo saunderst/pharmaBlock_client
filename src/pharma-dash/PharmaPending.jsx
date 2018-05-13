@@ -25,7 +25,7 @@ class PharmaPending extends Component {
     constructor(props) {
       super(props);
       this.state ={
-   
+     contracts:[]
       }
     } 
     componentDidMount() { 
@@ -37,18 +37,11 @@ class PharmaPending extends Component {
       .catch(e => console.log('Error'))
      }
 
-<<<<<<< HEAD
- 
-=======
   
->>>>>>> feature/contracts
     render() {
       return (
         <div className="pharma-pending-container">
         <h2> Pending Prescription Bids</h2>
-<<<<<<< HEAD
-        <PharmaCard userId={this.props.userId}/>
-=======
         <div style={styles.root}>
     <GridList
       cols={4}
@@ -80,7 +73,6 @@ class PharmaPending extends Component {
       ))}
     </GridList>
   </div>
->>>>>>> feature/contracts
         </div>
 
       );
