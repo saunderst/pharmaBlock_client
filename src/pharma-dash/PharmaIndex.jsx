@@ -6,7 +6,7 @@ import PharmaCompleted from "./PharmaCompleted.jsx";
 import PharmaPending from "./PharmaPending.jsx";
 import PharmaActive from "./PharmaActive.jsx";
 import PharmaProducts from "./PharmaProducts.jsx";
-
+import CompanyProfile from "./CompanyProfile.jsx";
 
 class PharmaIndex extends Component {
     constructor(props) {
@@ -23,7 +23,8 @@ class PharmaIndex extends Component {
         <Route exact path='/pharma/pending' render={(props) => <PharmaPending {...props}  userId={this.props.userId}/>} />
         <Route exact path='/pharma/active' render={(props) => <PharmaActive {...props}   userId={this.props.userId}/>} />
         <Route exact path='/pharma/completed' render={(props) => <PharmaCompleted {...props} userId={this.props.userId}/>} />
-        <Route exact path='/pharma/products' component={PharmaProducts} />
+        <Route exact path='/pharma/products' render={(props) => <PharmaProducts {...props} userId={this.props.userId}/>}/>
+        <Route exact path='/pharma/profile' render={(props) => <CompanyProfile {...props} userId={this.props.userId}/>} />
         </div>         
         <PharmaSidebar/>
         </div>

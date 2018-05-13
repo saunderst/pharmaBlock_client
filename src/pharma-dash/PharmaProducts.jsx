@@ -8,12 +8,20 @@ class PharmaProducts extends Component {
   constructor(props) {
     super(props);
     this.state = {
-    
+     products: [],
       };
   
      
     }
 
+    componentWillMount() { 
+      axios.get(`http://localhost:8080/pharmacos/${this.props.userId}/contracts`)
+      .then((response) => 
+      { console.log(response)
+         this.setState(...this.state, { products: response.data })})    
+      .catch(e => console.log('Error'))
+     }
+ 
   
     
   render() {
@@ -22,25 +30,34 @@ class PharmaProducts extends Component {
   <div className="pharma-products-container">
   <h2> Products</h2>
   <div className="products-container">
-   <div className="row">
-       <div className="col-sm-4">
-        <div className="card">       
-        <img id="cardImage" src="https://images.unsplash.com/photo-1522827585129-4ba47bae3e06?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=db148c67591435a9d18d9f7baee950af&auto=format&fit=crop&w=1350&q=80" />     
-        <div className="card-body">
-        <h4 className="pharma-name">Pharma Name</h4>
-          <h5 className="card-title">Drug Name</h5>
-          <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-         
-        </div>
-        <footer>
-          <div className="card-price">
-              <p>$cents per pill</p>
-              </div>
-          </footer>
-      </div>
-      </div>
 
-</div>
+  <div style={styles.root}>
+    <GridList
+      cols={3}
+      cellHeight={200}
+      padding={5}
+      style={styles.gridList}
+     
+      
+    >
+      {this.state.products.map((product) => (
+        <GridTile
+          key={product.img}
+          title={product.brand_name}
+          price={product.price}
+
+          actionPosition="left"
+          titlePosition="bottom"
+          titleBackground="linear-gradient(to bottom, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 70%,rgba(0,0,0,0) 100%)"
+          cols={product.featured ? 2 : 1}
+          rows={product.featured ? 2 : 1}
+        
+        >
+          <img src={product.img} />
+        </GridTile>
+      ))}
+    </GridList>
+  </div>
 </div>
 </div>
 

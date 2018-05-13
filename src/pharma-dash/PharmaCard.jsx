@@ -5,6 +5,7 @@ import IconButton from 'material-ui/IconButton';
 import Subheader from 'material-ui/Subheader';
 import StarBorder from 'material-ui/svg-icons/toggle/star-border';
 import RaisedButton from 'material-ui/RaisedButton';
+
 const styles = {
   root: {
     display: 'flex',
@@ -19,62 +20,24 @@ const styles = {
     
   },
 };
-
-const tilesData = [
-  {
-    img: 'https://images.unsplash.com/photo-1522827585129-4ba47bae3e06?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=db148c67591435a9d18d9f7baee950af&auto=format&fit=crop&w=1350&q=80',
-    title: 'Hello',
-    author: 'jill111',
-    description: 'blahblahblah'
-  
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6c18d87b91cee85cbe63912304dba923&auto=format&fit=crop&w=1350&q=80',
-    title: 'Hello',
-    author: 'pashminu',
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6c18d87b91cee85cbe63912304dba923&auto=format&fit=crop&w=1350&q=80',
-    title: 'Hello',
-    author: 'Danson67',
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6c18d87b91cee85cbe63912304dba923&auto=format&fit=crop&w=1350&q=80',
-    title: 'Hello',
-    author: 'fancycrave1',
-  
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1522827585129-4ba47bae3e06?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=db148c67591435a9d18d9f7baee950af&auto=format&fit=crop&w=1350&q=80',
-    title: 'Hello',
-    author: 'Hans',
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1522827585129-4ba47bae3e06?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=db148c67591435a9d18d9f7baee950af&auto=format&fit=crop&w=1350&q=80',
-    title: 'Hello',
-    author: 'fancycravel',
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6c18d87b91cee85cbe63912304dba923&auto=format&fit=crop&w=1350&q=80',
-    title: 'Hello',
-    author: 'jill111',
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1522827585129-4ba47bae3e06?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=db148c67591435a9d18d9f7baee950af&auto=format&fit=crop&w=1350&q=80',
-    title: 'Hello',
-    author: 'BkrmadtyaKarki',
-  },
-];
 class PharmaCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-    
+    contracts:[]
       };
   
      
     }
 
+    componentWillMount() { 
+      axios.get(`http://localhost:8080/pharmacos/${this.props.userId}/contracts`)
+      .then((response) => 
+      { console.log(response)
+         this.setState(...this.state, { contracts: response.data })})    
+      .catch(e => console.log('Error'))
+     }
+ 
   
     
   render() {
@@ -90,18 +53,20 @@ class PharmaCard extends Component {
      
       
     >
-      {tilesData.map((tile) => (
+      {this.state.contracts.map((contract) => (
         <GridTile
-          key={tile.img}
-          title={tile.title}
+          key={contract.img}
+          title={contract.brand_name}
+          price={contract.price}
+          dose={contract.dose}
           actionPosition="left"
           titlePosition="bottom"
           titleBackground="linear-gradient(to bottom, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 70%,rgba(0,0,0,0) 100%)"
-          cols={tile.featured ? 2 : 1}
-          rows={tile.featured ? 2 : 1}
+          cols={contract.featured ? 2 : 1}
+          rows={contract.featured ? 2 : 1}
         
         >
-          <img src={tile.img} />
+          <img src={contract.img} />
         </GridTile>
       ))}
     </GridList>
