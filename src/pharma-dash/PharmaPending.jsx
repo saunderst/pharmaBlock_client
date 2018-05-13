@@ -1,70 +1,24 @@
 import React, { Component } from "react";
 import {GridList, GridTile} from 'material-ui/GridList';
 import axios from 'axios';
-import IconButton from 'material-ui/IconButton';
-import Subheader from 'material-ui/Subheader';
-import StarBorder from 'material-ui/svg-icons/toggle/star-border';
-import RaisedButton from 'material-ui/RaisedButton';
+import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import FlatButton from 'material-ui/FlatButton';
+import Divider from 'material-ui/Divider';
+
 const styles = {
   root: {
     display: 'flex',
     flexWrap: 'wrap',
-    justifyContent: 'space-around',
+    // justifyContent: 'space-around',
     
   },
   gridList: {
     width: 1000,
-    height: 450,
+    height: 400,
     overflowY: 'auto',
     
   },
 };
-
-const tilesData = [
-  {
-    img: 'https://images.unsplash.com/photo-1522827585129-4ba47bae3e06?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=db148c67591435a9d18d9f7baee950af&auto=format&fit=crop&w=1350&q=80',
-    title: 'Hello',
-    author: 'jill111',
-    description: 'blahblahblah'
-  
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6c18d87b91cee85cbe63912304dba923&auto=format&fit=crop&w=1350&q=80',
-    title: 'Hello',
-    author: 'pashminu',
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6c18d87b91cee85cbe63912304dba923&auto=format&fit=crop&w=1350&q=80',
-    title: 'Hello',
-    author: 'Danson67',
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6c18d87b91cee85cbe63912304dba923&auto=format&fit=crop&w=1350&q=80',
-    title: 'Hello',
-    author: 'fancycrave1',
-  
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1522827585129-4ba47bae3e06?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=db148c67591435a9d18d9f7baee950af&auto=format&fit=crop&w=1350&q=80',
-    title: 'Hello',
-    author: 'Hans',
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1522827585129-4ba47bae3e06?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=db148c67591435a9d18d9f7baee950af&auto=format&fit=crop&w=1350&q=80',
-    title: 'Hello',
-    author: 'fancycravel',
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6c18d87b91cee85cbe63912304dba923&auto=format&fit=crop&w=1350&q=80',
-    title: 'Hello',
-    author: 'jill111',
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1522827585129-4ba47bae3e06?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=db148c67591435a9d18d9f7baee950af&auto=format&fit=crop&w=1350&q=80',
-    title: 'Hello',
-    author: 'BkrmadtyaKarki',
-  },
-];
 
 
 class PharmaPending extends Component {
@@ -91,25 +45,32 @@ class PharmaPending extends Component {
         <h2> Pending Prescription Bids</h2>
         <div style={styles.root}>
     <GridList
-      cols={3}
-      cellHeight={200}
-      padding={5}
+      cols={4}
+      cellHeight={100}
+      padding={9}
       style={styles.gridList}
-     
-      
+       
     >
-      {tilesData.map((tile) => (
-        <GridTile
-          key={tile.img}
-          title={tile.title}
-          actionPosition="left"
-          titlePosition="bottom"
-          cols={tile.featured ? 2 : 1}
-          rows={tile.featured ? 2 : 1}
-        
-        >
-          <img src={tile.img} />
-        </GridTile>
+      {this.state.contracts.map((contract) => (
+     <Card>
+     <CardMedia>
+       <img src={`/docs/drugs/${contract.image_url}`}  alt="" className="pending-contract-card" />
+     </CardMedia>
+     <CardTitle title={contract.brand_name}  />
+     <CardText>
+    {contract.description}
+    <Divider />
+    <p>{contract.price_per_mg} cost per contract</p>
+    <p>{contract.dose} Dose</p>
+     </CardText>
+     
+     <CardActions>
+       <FlatButton label="Flag" 
+       backgroundColor="#DC143C"
+       icon={<i class="far fa-flag"></i>} />   
+     
+     </CardActions>
+   </Card>
       ))}
     </GridList>
   </div>
