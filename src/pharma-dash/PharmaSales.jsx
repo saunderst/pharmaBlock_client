@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import RaisedButton from 'material-ui/RaisedButton';
-import ReactChartkick, { GeoChart, LineChart } from 'react-chartkick';
-// import Chart from 'chart.js';
+import ReactChartkick, {DiscreteAreaChart, AreaChart, LineChart } from 'react-chartkick';
 
-// ReactChartkick.addAdapter(Chart)
+
+const data = {"2013-02-10":5,"2013-02-11":6,"2013-02-12":3,"2013-02-13":2,"2013-02-14":5,"2013-02-15":3,"2013-02-16":8,"2013-02-17":9,"2013-02-18":8,"2013-02-19":12,"2013-02-20":15,"2013-02-21":15,"2013-02-22":13,"2013-02-23":11,"2013-02-24":19,"2013-02-25":21,"2013-02-26":23,"2013-02-27":22,"2013-02-28":23,"2013-03-01":22,"2013-03-02":28};
 
 class PharmaSales extends Component {
     constructor(props) {
@@ -16,8 +16,9 @@ class PharmaSales extends Component {
     render () {
 
         return (
-            <div id="heatmap">
-                <GeoChart data={[["United States",44],["Germany",23],["Brazil",22],["Canada",21],["China",13], ["India",70]]} colors={[ "#a1d9ce", "#69c2b0" , "#3da18d" , "#2f7d6d", "#22594e"]}/>
+            <div id="saleschart">
+                <LineChart colors={["#69c2b0"]} data={data} />
+                <AreaChart colors={["#69c2b0"]} data={data} />
             </div>
         )
     }

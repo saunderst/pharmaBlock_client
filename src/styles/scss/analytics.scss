@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css?family=Hind+Vadodara:400,500,600');
 
 #piechart-container {
+    margin-left: 15rem;
     width: 40rem;
     height: 40rem;
 }
@@ -12,5 +13,9 @@
     float: right;
     margin: auto;
     margin-top: 50px;
+}
+
+#saleschart{
+    margin: auto;
 }
 
