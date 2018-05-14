@@ -10,40 +10,27 @@ const API_NAMESPACE = process.env.API_NAMESPACE || '/'
 const BASEURL = `${API_HOST}${API_NAMESPACE}`
 
 /*
-Create a configured axios instance.
-If you need custom headers, this is where you should put them.
-*/
-const server = axios.create({
-  baseURL: BASEURL,
-  timeout: 10000,
-  headers: {
-    'Content-Type': 'application/vnd.api+json'
-  }
-})
-
-
-/*
 * PUBLIC METHODS
 */
 
 function get(endpoint) {
-  return server.get(endpoint)
+  return axios.get(BASEURL+endpoint)
 }
 
 function post(endpoint, data) {
-  return server.post(endpoint, data)
+  return axios.post(BASEURL+endpoint, data)
 }
 
 function put(endpoint, data) {
-  return server.put(endpoint, data)
+  return axios.put(BASEURL+endpoint, data)
 }
 
 function patch(endpoint, data) {
-  return server.patch(endpoint, data)
+  return axios.patch(BASEURL+endpoint, data)
 }
 
 function del(endpoint) { // delete is a reserved keyword
-  return server.delete(endpoint)
+  return axios.delete(BASEURL+endpoint)
 }
 
 const api = {
