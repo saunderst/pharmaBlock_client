@@ -21,7 +21,6 @@ const styles = {
   },
 };
 
-
 class PendingContracts extends Component {
     constructor(props) {
       super(props);
