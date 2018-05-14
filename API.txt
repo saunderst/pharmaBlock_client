@@ -1,0 +1,22 @@
+//============================================
+// All functions return promises.  Use
+// .then(returnData => {your code here})
+//
+// Note two types of syntax: 1) for easy re-use:
+const patient = Resource('patient', address);
+patient.contracts(contractId);
+patient.anothermethod(params);
+patient.yetAnotherMethod(moreParams);  // ... etc.
+
+// or 2) a one-shot approach:
+Resource('patient', address).contracts(contractId);
+//============================================
+
+
+import Resource from './models/resource.js'
+
+Resource('login').execute({email, password}); //login
+Resource('login').undo();                     //logout
+
+Resource('patient', address).getContracts(contractId);  //contractId is optional
+Resource('patient', address).signContract(contractId);
