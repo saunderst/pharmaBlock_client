@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import PendingContracts from "./PendingContracts.jsx";
 import CompletedContracts from "./CompletedContracts.jsx";
-import AddContracts from "./AddContracts.jsx";
 import CurrentContracts from "./CurrentContracts.jsx";
 import Divider from 'material-ui/Divider';
 import Drawer from 'material-ui/Drawer';

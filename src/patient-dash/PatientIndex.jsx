@@ -5,7 +5,6 @@ import Container from 'muicss/lib/react/container'
 import PendingContracts from "./PendingContracts.jsx";
 import CompletedContracts from "./CompletedContracts.jsx";
 import PatientHome from "./PatientHome.jsx";
-import AddContracts from "./AddContracts.jsx";
 import PendingBids from "./PendingBids.jsx";
 import Row from 'muicss/lib/react/row';
 import Col from 'muicss/lib/react/col';
