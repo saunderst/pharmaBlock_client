@@ -15,8 +15,14 @@ Resource('patient', address).contracts(contractId);
 
 import Resource from './models/resource.js'
 
-Resource('login').execute({email, password}); //login
-Resource('login').undo();                     //logout
+Resource('login').execute({email, password});           //login
+Resource('login').undo();                               //logout
 
-Resource('patient', address).getContracts(contractId);  //contractId is optional
-Resource('patient', address).signContract(contractId);
+Resource('patient', address).getInfo();                 //response is patient profile
+Resource('patient', address).getContracts(contractId);  //contractId is optional; response is contract info []
+Resource('patient', address).signContract(contractId);  //response is all contracts for patient []
+Resource('patient', address).createContract();          //response is all contracts for patient []
+
+Resource('pharmaco', address).getInfo();                //response is pharmaco profile
+Resource('pharmaco', address).getContracts(contractId); //contractId is optional; response is contract info []
+Resource('pharmaco', address).getDrugs();               //response is all drugs produced by this pharmaco []

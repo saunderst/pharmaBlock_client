@@ -28,6 +28,20 @@ const Resource = (endpoint, address) => {
     });
   }
 
+  function getInfo () {
+    return new Promise((resolve, reject) => {
+      if (address.substr(0,2) !== '0x' || address.length !== 42) {
+        reject('Invalid public address.');
+      } else if (endpoint === 'patients' || endpoint === 'pharmacos') {
+        api.get (`${endpoint}/${address}`)
+        .then((result) => resolve(result.data[0]))
+        .catch((errors) => reject(errors))
+      } else {
+        reject(`Unknown ${endpoint} method.`);
+      }
+    });
+  }
+
   function getContracts (contractId) {  // contractId is optional
     return new Promise((resolve, reject) => {
       if (contractId && (contractId.substr(0,2) !== '0x' || contractId.length !== 42)) {
@@ -44,7 +58,23 @@ const Resource = (endpoint, address) => {
     });
   }
 
-  function signContract (contractId) {
+  function getDrugs (contractId) {  // contractId is optional
+    return new Promise((resolve, reject) => {
+      if (contractId && (contractId.substr(0,2) !== '0x' || contractId.length !== 42)) {
+        reject('Invalid contract ID.');
+      } else if (address.substr(0,2) !== '0x' || address.length !== 42) {
+        reject('Invalid public address.');
+      } else if (endpoint === 'pharmacos') {
+        api.get (`${endpoint}/${address}/drugs`)
+        .then((result) => resolve(result.data))
+        .catch((errors) => reject(errors))
+      } else {
+        reject(`Unknown ${endpoint} method.`);
+      }
+    });
+  }
+
+   function signContract (contractId) {
     return new Promise((resolve, reject) => {
       if (contractId.substr(0,2) !== '0x' || contractId.length !== 42) {
         reject('Invalid contract ID.');
@@ -66,11 +96,49 @@ const Resource = (endpoint, address) => {
     });
   }
 
-   return {
+  function createContract (data) {
+    return new Promise((resolve, reject) => {
+      if (address.substr(0, 2) !== '0x' || address.length !== 42) {
+        reject('Invalid public address.');
+      } else if (endpoint === 'patients') {
+        if (!data.drugId) reject('missing drugID')
+        else if (!data.dosage) reject('missing dosage')
+        else if (!data.numberOfDoses) reject('missing numberOfDoses')
+        else if (!data.frequencyOfDose) reject('missing frequencyOfDose')
+        else {
+          api.post (`${endpoint}/${address}/contracts`, data)
+          .then(result => {
+            if (result.status !== 200) {
+              reject(result.status);
+            } else {
+              let contractId = result.data[0].public_address;
+              api.post (`contracts/${contractId}/bids`)
+              .then(bidResult => {
+                if (bidResult.status === 200) {
+                  resolve(getContracts(contractId));
+                } else {
+                  reject(bidResult.status);
+                }
+              })
+              .catch(errors => reject(errors));
+            }
+          })
+          .catch(errors => reject(errors));
+        }
+      } else {
+        reject(`Unknown ${endpoint} method.`);
+      }
+    });
+  }
+
+  return {
     execute,
     undo,
+    getInfo,
     getContracts,
-    signContract
+    getDrugs,
+    signContract,
+    createContract
   };
 
 }
