@@ -22,11 +22,11 @@ const styles = {
 };
 
 
-class PendingContracts extends Component {
+class PendingBids extends Component {
     constructor(props) {
       super(props);
       this.state = {
-        contracts:[]
+        bids:[]
       }
     }
 
@@ -34,11 +34,10 @@ class PendingContracts extends Component {
       axios.get(`http://localhost:8080/patients/${this.props.userId}/contracts`)
       .then((response) => 
       { console.log(response)
-         this.setState(...this.state,{ contracts: response.data })})
+         this.setState(...this.state,{ bids: response.data })})
      
-      .catch(e => console.log(e))
+      .catch(e => console.log('Error'))
      }
-
 
     render() {
       return (
@@ -52,26 +51,24 @@ class PendingContracts extends Component {
       style={styles.gridList}
        
     >
-      {this.state.contracts.map((contract) => (
-      <div className="pending-contracts-card" key={contract.cId}>
-      <Card>
+      {this.state.bids.map((bid) => (
+     <Card>
      <CardMedia>
-       <img src={`/docs/drugs/${contract.image_url}`}  alt="" className="pending-contract-card" />
+       <img src={`/docs/drugs/${bid.image_url}`}  alt="" className="pending-contract-card" />
      </CardMedia>
-     <CardTitle title={contract.brand_name}  />
+     <CardTitle title={bid.brand_name}  />
      <CardText>
-    {contract.description}
+    {bid.description}
     <Divider />
 
      </CardText>
      
      <CardActions>
-       <Link to="/patient/pending/bids">
-       <RaisedButton label="View Bids" primary={true} />   
-    </Link>
+
+       <RaisedButton label="Accept" primary={true} />   
+    
      </CardActions>
    </Card>
-   </div>
       ))}
     </GridList>
   </div>
@@ -81,4 +78,4 @@ class PendingContracts extends Component {
     }
   }
   
-  export default PendingContracts;
+  export default PendingBids;

@@ -6,6 +6,7 @@ import PendingContracts from "./PendingContracts.jsx";
 import CompletedContracts from "./CompletedContracts.jsx";
 import PatientHome from "./PatientHome.jsx";
 import AddContracts from "./AddContracts.jsx";
+import PendingBids from "./PendingBids.jsx";
 import Row from 'muicss/lib/react/row';
 import Col from 'muicss/lib/react/col';
 
@@ -22,8 +23,9 @@ class PatientIndex extends Component {
         <div>
         <div>
         <Route exact path="/patient"  render={(props) => <PatientHome {...props}  userName={this.props.userName} userId={this.props.userId}/>} />
-        <Route exact path='/patient/pending' component={PendingContracts} />
-        <Route exact path='/patient/completed' component={CompletedContracts} />
+        <Route exact path='/patient/pending' render={(props) => <PendingContracts {...props}  userId={this.props.userId}/>}/>
+        <Route exact path='/patient/completed' render={(props) => <CompletedContracts {...props}  userId={this.props.userId}/>} />
+        <Route exact path='/patient/pending/bids' render={(props) => <PendingBids {...props}  userId={this.props.userId}/>} />
         </div>         
         <PatientSidebar/>
         </div>
