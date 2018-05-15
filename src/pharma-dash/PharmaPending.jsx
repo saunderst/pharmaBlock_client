@@ -4,6 +4,7 @@ import axios from 'axios';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import Divider from 'material-ui/Divider';
+import Resource from '../models/resource'
 
 const styles = {
   root: {
@@ -29,10 +30,16 @@ class PharmaPending extends Component {
       }
     } 
     componentDidMount() { 
-      axios.get(`http://localhost:8080/pharmacos/${this.props.userId}/contracts`)
+      Resource('pharmacos', this.props.userId).getContracts()
       .then((response) => 
       { console.log(response)
-         this.setState(...this.state,{ contracts: response.data })})
+        let pendingContracts =[];
+        response.forEach((contract) => {
+          if (contract.contractStatus === "pending") {
+            pendingContracts.push(contract);
+          }
+        })
+         this.setState(...this.state,{ contracts: pendingContracts})})
      
       .catch(e => console.log('Error'))
      }

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import Resource from '../models/resource'
 
 class PharmaProfile extends Component {
     constructor(props) {
@@ -12,13 +12,13 @@ class PharmaProfile extends Component {
       }
     }
     componentDidMount() { 
-        axios.get(`http://localhost:8080/pharmacos/${this.props.userId}`)
+      Resource('pharmacos', this.props.userId).getInfo()
         .then((response) => 
         { console.log(response)
            this.setState(...this.state, {
-               companyName: response.data[0].company_name,
-               contactName: response.data[0].contact_name,
-               email: response.data[0].email      
+               companyName: response.company_name,
+               contactName: response.contact_name,
+               email: response.email      
             })})
        
         .catch(e => console.log('Error'))

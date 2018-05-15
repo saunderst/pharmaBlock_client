@@ -5,6 +5,8 @@ import Subheader from 'material-ui/Subheader';
 import StarBorder from 'material-ui/svg-icons/toggle/star-border';
 import RaisedButton from 'material-ui/RaisedButton';
 import {GridList, GridTile} from 'material-ui/GridList';
+import Resource from '../models/resource'
+
 const styles = {
   root: {
     display: 'flex',
@@ -30,10 +32,10 @@ class PharmaProducts extends Component {
     }
 
     componentWillMount() { 
-      axios.get(`http://localhost:8080/pharmacos/${this.props.userId}/drugs`)
+      Resource('pharmacos', this.props.userId).getDrugs()
       .then((response) => 
       { console.log(response)
-         this.setState(...this.state, { products: response.data })})    
+         this.setState(...this.state, { products: response})})    
       .catch(e => console.log('Error'))
      }
  
