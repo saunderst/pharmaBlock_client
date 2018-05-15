@@ -32,15 +32,7 @@ class PendingBids extends Component {
       }
     }
 
-    handleAccept = (e) => {
-      Resource('patients',this.props.userId).signContract(this.props.match.params.id)
-      .then(response => {
-        console.log("Response: ")
-      })
-      .catch(error => {
-        console.log("Error: " + error)
-      })
-  }
+ 
     componentDidMount() { 
       console.log(this.props.match.params.id)
       Resource('contracts', this.props.match.params.id).getBids()
@@ -48,6 +40,17 @@ class PendingBids extends Component {
       { console.log(response)
          this.setState(...this.state,{ bids: response })})  
       .catch(e => console.log('Error'))
+
+
+      handleAccept = (e) => {
+        Resource('patients',this.props.userId).signContract(this.props.match.params.id)
+        .then(response => {
+          console.log("Response: ")
+        })
+        .catch(error => {
+          console.log("Error: " + error)
+        })
+    }
      }
 
     render() {

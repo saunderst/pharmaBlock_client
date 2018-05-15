@@ -66,7 +66,7 @@ class PendingContracts extends Component {
      <CardMedia>
        <img src={`/docs/prescription.jpg`}  alt="" className="pending-contract-image" />
      </CardMedia>
-     <CardTitle title={contract.brand_name}  />
+     <CardTitle title={contract.generic_name}  />
      <CardText>
     {contract.description}
     <Divider />

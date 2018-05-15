@@ -4,6 +4,7 @@ import CurrentContracts from "./CurrentContracts.jsx";
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import Resource from '../models/resource'
+import TextField from 'material-ui/TextField';
 
 const styles = {
    
@@ -53,7 +54,6 @@ class PatientHome extends Component {
         <FlatButton
           label="Submit"
           primary={true}
-          disabled={true}
           onClick={this.handleClose}
           onClick={this.handleSubmit}
         />,
@@ -72,7 +72,12 @@ class PatientHome extends Component {
           modal={true}
           open={this.state.open}
         >
-         Helloooo
+    <TextField
+      hintText="Given to you by your doctor"
+      floatingLabelText="Prescription ID"
+      floatingLabelFixed={true}
+    /><br />
+   
         </Dialog>
       </div>
         <div className="current-contracts-container">
