@@ -11,6 +11,7 @@ import {
 } from 'material-ui/Table';
 import TextField from 'material-ui/TextField';
 import Toggle from 'material-ui/Toggle';
+import Resource from '../models/resource'
 
 const styles = {
   propContainer: {
@@ -64,6 +65,7 @@ class PharmaCompleted extends Component {
         deselectOnClickaway: true,
         showCheckboxes: true,
         height: '600px',
+        contracts: [],
     }
     }
     handleToggle = (event, toggled) => {
@@ -75,6 +77,21 @@ class PharmaCompleted extends Component {
   handleChange = (event) => {
     this.setState({height: event.target.value});
   };
+
+  componentWillMount() { 
+    Resource('pharmacos', this.props.userId).getContracts()
+    .then((response) => 
+    { console.log(response)
+      let completedContracts =[];
+      response.forEach((contract) => {
+        if (contract.contractStatus === "filled") {
+          completedContracts.push(contract);
+        }
+      })
+       this.setState(...this.state,{ contracts: completedContracts})})
+   
+    .catch(e => console.log('Error'))
+   }
 
 
     render() {
