@@ -5,7 +5,7 @@ import axios from 'axios';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import Divider from 'material-ui/Divider';
-
+import Resource from '../models/resource'
 
 
 const styles = {
@@ -32,11 +32,11 @@ class CurrentContracts extends Component {
     }
   }
   componentWillMount() {
-    axios.get(`http://localhost:8080/patients/${this.props.userId}/contracts`)
+    Resource('patients', this.props.userId).getContracts()
       .then((response) => {
-
+       console.log(response)
         let activeContracts =[];
-        response.data.forEach((contract) => {
+        response.forEach((contract) => {
           if (contract.contractStatus === "filled") {
             activeContracts.push(contract);
           }
