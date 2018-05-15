@@ -24,7 +24,7 @@ class PatientIndex extends Component {
         <Route exact path="/patient"  render={(props) => <PatientHome {...props}  userName={this.props.userName} userId={this.props.userId}/>} />
         <Route exact path='/patient/pending' render={(props) => <PendingContracts {...props}  userId={this.props.userId}/>}/>
         <Route exact path='/patient/completed' render={(props) => <CompletedContracts {...props}  userId={this.props.userId}/>} />
-        <Route exact path='/patient/pending/bids' render={(props) => <PendingBids {...props}  userId={this.props.userId}/>} />
+        <Route exact path='/patient/pending/bids/:id' render={(props) => <PendingBids {...props}  userId={this.props.userId}/>} />
         </div>         
         <PatientSidebar/>
         </div>

@@ -74,6 +74,21 @@ const Resource = (endpoint, address) => {
     });
   }
 
+  function getBids () {
+    return new Promise((resolve, reject) => {
+      if (address.substr(0,2) !== '0x' || address.length !== 42) {
+        reject('Invalid public address.');
+      } else if (endpoint === 'contracts') {
+        api.get (`${endpoint}/${address}/bids`)
+        .then((result) => resolve(result.data))
+        .catch((errors) => reject(errors))
+      } else {
+        reject(`Unknown ${endpoint} method.`);
+      }
+    });
+  }
+
+
    function signContract (contractId) {
     return new Promise((resolve, reject) => {
       if (contractId.substr(0,2) !== '0x' || contractId.length !== 42) {

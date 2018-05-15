@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {GridList, GridTile} from 'material-ui/GridList';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
 import axios from 'axios';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -26,7 +26,8 @@ class PendingContracts extends Component {
     constructor(props) {
       super(props);
       this.state = {
-        contracts:[]
+        contracts:[],
+        
       }
     }
 
@@ -73,8 +74,8 @@ class PendingContracts extends Component {
      </CardText>
      
      <CardActions>
-       <Link to="/patient/pending/bids">
-       <RaisedButton label="View Bids" primary={true} />   
+       <Link to={{pathname:`/patient/pending/bids/${contract.cId}`}}  >  
+       <RaisedButton label="View Bids" primary={true} /> 
     </Link>
      </CardActions>
    </Card>
