@@ -34,8 +34,6 @@ class PharmaPending extends Component {
       .then((response) => 
       { console.log(response)
         let pendingContracts =[];
-      
-        console.log(dateToday)
         response.forEach((contract) => {
           if (contract.contractStatus === "pending") {
             pendingContracts.push(contract);

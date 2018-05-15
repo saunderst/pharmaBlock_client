@@ -13,17 +13,17 @@ class Audience extends Component {
             <div className="col-sm-4">
               <h3>Patients</h3>
               <img src="docs/patient.png" />
-              <p>We help patients</p>
+
             </div>
             <div className="col-sm-4">
               <h3>Pharmaceuticals</h3>
               <img src="docs/pharma.png" />
-              <p>We help Pharmaceuticals</p>
+            
             </div>
             <div className="col-sm-4">
               <h3>Doctors</h3>
               <img src="docs/doctor.png" />
-              <p>We help doctors</p>
+    
             </div>
           </div>
         </div>

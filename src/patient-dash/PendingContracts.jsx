@@ -51,7 +51,7 @@ class PendingContracts extends Component {
     render() {
       return (
         <div className="pending-contracts-container">
-           <h2> Pending Prescription Bids</h2>
+           <h2> Pending Prescriptions</h2>
         <div style={styles.root}>
     <GridList
       cols={4}

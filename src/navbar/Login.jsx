@@ -42,7 +42,9 @@ signIn =(e)=>{
   axios.post('http://localhost:8080/login', user)
   .then((response) =>
     {   
-    console.log(response)
+ 
+     window.localStorage.auth_token = response.data.token;
+    console.log(response.data)
       this.setState(...this.state, {
         userId: response.data.userId,
         email: response.data.email,
@@ -79,7 +81,7 @@ signIn =(e)=>{
    
       <label for="email" class="float-label">login</label>
     </div>
-    <div id="form-login-password" class="form-group">
+    <div id="form-login-password" className="form-group">
       <input onChange={this.handlePasswordChange} id="passwd" type="password" className="form-control" name="password" type="password" placeholder="Password" required />
       <label for="password" className="float-label">password</label>
     </div>  

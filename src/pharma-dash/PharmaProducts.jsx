@@ -65,7 +65,7 @@ class PharmaProducts extends Component {
         }
           actionPosition="left"
           titlePosition="bottom"
-          titleBackground="linear-gradient(to bottom, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.7) 70%,rgba(0,0,0,0) 100%)"
+          titleBackground="linear-gradient(to bottom, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.5) 70%,rgba(0,0,0,0) 100%)"
           cols={product.featured ? 2 : 1}
           rows={product.featured ? 2 : 1}
           > 
