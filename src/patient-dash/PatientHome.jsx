@@ -3,6 +3,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import CurrentContracts from "./CurrentContracts.jsx";
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
+import Resource from '../models/resource'
 
 const styles = {
    
@@ -30,7 +31,17 @@ class PatientHome extends Component {
   handleClose = () => {
     this.setState({open: false});
   };
-
+  
+  
+  handleSubmit = (e) => {
+    Resource('patients',this.props.userId).createContract()
+    .then(response => {
+      console.log("Response: ")
+    })
+    .catch(error => {
+      console.log("Error: " + error)
+    })
+}
     
     render() {
       const actions = [
@@ -44,6 +55,7 @@ class PatientHome extends Component {
           primary={true}
           disabled={true}
           onClick={this.handleClose}
+          onClick={this.handleSubmit}
         />,
       ];
   

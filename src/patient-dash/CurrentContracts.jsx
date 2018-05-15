@@ -28,9 +28,10 @@ class CurrentContracts extends Component {
     super(props);
     this.state = {
       activeContracts: [],
-      // public_address: (this.props.match.params.userId || null),
     }
   }
+
+
   componentWillMount() {
     Resource('patients', this.props.userId).getContracts()
       .then((response) => {

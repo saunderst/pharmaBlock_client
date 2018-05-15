@@ -40,15 +40,13 @@ class PendingBids extends Component {
       .catch(error => {
         console.log("Error: " + error)
       })
-
-    }
+  }
     componentDidMount() { 
       console.log(this.props.match.params.id)
       Resource('contracts', this.props.match.params.id).getBids()
       .then((response) => 
       { console.log(response)
-         this.setState(...this.state,{ bids: response })})
-     
+         this.setState(...this.state,{ bids: response })})  
       .catch(e => console.log('Error'))
      }
 
@@ -71,9 +69,7 @@ class PendingBids extends Component {
      <CardText>
     {bid.description}
     <Divider />
-
-     </CardText>
-     
+     </CardText>    
      <CardActions>
        <RaisedButton label="Accept" secondary={true} onClick={this.handleAccept} />   
      </CardActions>
