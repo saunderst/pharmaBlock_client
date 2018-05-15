@@ -63,7 +63,7 @@ return(
     <div>
     <NavBar handleLogin={this.handleLogin} handleLogout = {this.handleLogout}
     currentUser={this.state.currentUser}/>
-   <div style={{ paddingTop: 90 }}></div>
+   <div style={{ paddingTop: 50 }}></div>
     <main>
       <Switch>
         <Route path="/" exact={true} component={HomePage} />

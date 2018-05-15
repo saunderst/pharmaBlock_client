@@ -9,7 +9,9 @@
   width:50px;
 
 }
-
+body {
+	background-color:#236B8E;
+}
 
 h1 {
 	font-family: 'Raleway', sans-serif;
@@ -399,4 +401,8 @@ h1 {
 
   .pharma-completed-container {
 	  margin-left:300px;
+  }
+
+  .pending-contract-image {
+	  height:200px;
   }
