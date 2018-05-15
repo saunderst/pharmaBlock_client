@@ -14,8 +14,9 @@ class PharmaActive extends Component {
       .then((response) => 
       { console.log(response)
         let activeContracts =[];
+        let dateToday = new Date()/1000
         response.forEach((contract) => {
-          if (contract.contractStatus === "filled") {
+          if (contract.contractStatus === "filled" && dateToday >= contract.end_date) {
             activeContracts.push(contract);
           }
         })

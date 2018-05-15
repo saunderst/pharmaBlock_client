@@ -10,6 +10,7 @@ import {
 } from 'material-ui/Table';
 import TextField from 'material-ui/TextField';
 import Toggle from 'material-ui/Toggle';
+import Resource from '../models/resource'
 
 const styles = {
   propContainer: {
@@ -63,6 +64,7 @@ class CompletedContracts extends Component {
         deselectOnClickaway: true,
         showCheckboxes: true,
         height: '600px',
+        contracts: [],
     }
     }
     handleToggle = (event, toggled) => {
@@ -74,6 +76,23 @@ class CompletedContracts extends Component {
   handleChange = (event) => {
     this.setState({height: event.target.value});
   };
+
+  componentWillMount() { 
+    Resource('patients', this.props.userId).getContracts()
+    .then((response) => 
+    { console.log(response)
+      let completedContracts =[];
+      let dateToday = new Date() /1000
+      console.log(dateToday)
+      response.forEach((contract) => {
+        if (contract.contractStatus === "filled" && dateToday > contract.end_date) {
+          completedContracts.push(contract);
+        }
+      })
+       this.setState(...this.state,{ contracts: completedContracts})})
+   
+    .catch(e => console.log('Error'))
+   }
 
 
     render() {
@@ -107,10 +126,10 @@ class CompletedContracts extends Component {
             showRowHover={this.state.showRowHover}
             stripedRows={this.state.stripedRows}
           >
-            {tableData.map( (row, index) => (
-              <TableRow key={index}>
-                <TableRowColumn>{index}</TableRowColumn>
-                <TableRowColumn>{row.name}</TableRowColumn>
+            {this.state.contracts.map( (row, contract) => (
+              <TableRow key={contract.cId}>
+                <TableRowColumn>{contract.cId}</TableRowColumn>
+                <TableRowColumn>{contract.brand_name}</TableRowColumn>
                 <TableRowColumn>{row.status}</TableRowColumn>
               </TableRow>
               ))}

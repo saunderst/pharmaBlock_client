@@ -33,8 +33,12 @@ class PatientHome extends Component {
     this.setState({open: false});
   };
   
-  
+
   handleSubmit = (e) => {
+    let prescription = {
+      generic_name: 'blah blah',
+      dose: 3, 
+    } 
     Resource('patients',this.props.userId).createContract()
     .then(response => {
       console.log("Response: ")
@@ -43,6 +47,7 @@ class PatientHome extends Component {
       console.log("Error: " + error)
     })
 }
+
     
     render() {
       const actions = [

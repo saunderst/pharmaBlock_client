@@ -58,11 +58,9 @@ const Resource = (endpoint, address) => {
     });
   }
 
-  function getDrugs (contractId) {  // contractId is optional
+  function getDrugs () {
     return new Promise((resolve, reject) => {
-      if (contractId && (contractId.substr(0,2) !== '0x' || contractId.length !== 42)) {
-        reject('Invalid contract ID.');
-      } else if (address.substr(0,2) !== '0x' || address.length !== 42) {
+      if (address.substr(0,2) !== '0x' || address.length !== 42) {
         reject('Invalid public address.');
       } else if (endpoint === 'pharmacos') {
         api.get (`${endpoint}/${address}/drugs`)
@@ -87,7 +85,6 @@ const Resource = (endpoint, address) => {
       }
     });
   }
-
 
    function signContract (contractId) {
     return new Promise((resolve, reject) => {
@@ -152,6 +149,7 @@ const Resource = (endpoint, address) => {
     getInfo,
     getContracts,
     getDrugs,
+    getBids,
     signContract,
     createContract
   };

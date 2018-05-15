@@ -34,6 +34,8 @@ class PharmaPending extends Component {
       .then((response) => 
       { console.log(response)
         let pendingContracts =[];
+      
+        console.log(dateToday)
         response.forEach((contract) => {
           if (contract.contractStatus === "pending") {
             pendingContracts.push(contract);
@@ -66,10 +68,11 @@ class PharmaPending extends Component {
      <CardText>
     {contract.description}
     <Divider />
-    <p>{contract.price_per_mg} cost per contract</p>
-    <p>{contract.dose} Dose</p>
-     </CardText>
-     
+    <p>Cost: {contract.price_per_mg}</p>
+    <p>Doses: {contract.numberOfDoses} </p>
+    <p>Frequency: {contract.frequencyOfDose} Dose</p>
+    <p>End Date: {contract.end_date} </p>
+     </CardText> 
      <CardActions>
        <FlatButton label="Flag" 
        backgroundColor="#DC143C"

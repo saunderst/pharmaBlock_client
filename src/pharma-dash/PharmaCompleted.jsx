@@ -83,8 +83,9 @@ class PharmaCompleted extends Component {
     .then((response) => 
     { console.log(response)
       let completedContracts =[];
+      let dateToday = new Date()/1000
       response.forEach((contract) => {
-        if (contract.contractStatus === "filled") {
+        if (contract.contractStatus === "filled" && dateToday > contract.end_date) {
           completedContracts.push(contract);
         }
       })
@@ -92,7 +93,6 @@ class PharmaCompleted extends Component {
    
     .catch(e => console.log('Error'))
    }
-
 
     render() {
       return (
@@ -125,7 +125,7 @@ class PharmaCompleted extends Component {
             showRowHover={this.state.showRowHover}
             stripedRows={this.state.stripedRows}
           >
-            {tableData.map( (row, index) => (
+            {this.state.contracts.map( (row, index) => (
               <TableRow key={index}>
                 <TableRowColumn>{index}</TableRowColumn>
                 <TableRowColumn>{row.name}</TableRowColumn>
