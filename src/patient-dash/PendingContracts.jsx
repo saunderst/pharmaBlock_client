@@ -5,6 +5,9 @@ import axios from 'axios';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import Divider from 'material-ui/Divider';
+import Resource from '../models/resource'
+
+
 
 const styles = {
   root: {
@@ -26,18 +29,19 @@ class PendingContracts extends Component {
       super(props);
       this.state = {
         contracts:[]
+
       }
     }
 
     componentDidMount() { 
-      axios.get(`http://localhost:8080/patients/${this.props.userId}/contracts`)
+      console.log(this.props.userId)
+      Resource('patients', this.props.userId).getContracts()
+
       .then((response) => 
       { console.log(response)
-         this.setState(...this.state,{ contracts: response.data })})
-     
+         this.setState(...this.state,{ contracts: response })})
       .catch(e => console.log(e))
      }
-
 
     render() {
       return (
