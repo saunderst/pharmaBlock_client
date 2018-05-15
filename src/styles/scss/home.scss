@@ -10,7 +10,7 @@
 
 }
 body {
-	background-color:#236B8E;
+	background-color:#F0F8FF;
 }
 
 h1 {
@@ -358,6 +358,7 @@ h1 {
 
 .patient-home-container {
 	margin-left:280px;
+	margin-top:40px;
 }
 
 .add-contacts-container {
@@ -366,6 +367,7 @@ h1 {
 
 .pending-contracts-container {
 	margin-left:300px;
+	margin-top:40px;
 }
 
 .login-button {
@@ -376,18 +378,22 @@ h1 {
 
   .pharma-home-container{
 	margin-left:280px;
+	margin-top:40px;
   }
 
   .pharma-pending-container {
 	  margin-left:300px;
+	  margin-top:40px;
   }
 
   .pharma-products-container {
 	  margin-left:300px;
+	  margin-top:40px;
   }
 
   .pharma-profile-container {
 	  margin-left:300px;
+	  margin-top:40px;
   }
 
   .pending-contract-card {
@@ -397,12 +403,18 @@ h1 {
 
   .completed-contracts-container {
 	  margin-left:300px;
+	  margin-top:40px;
   }
 
   .pharma-completed-container {
 	  margin-left:300px;
+	  margin-top:40px;
   }
 
   .pending-contract-image {
 	  height:200px;
+  }
+
+  .login-container {
+	  height:900px;
   }
