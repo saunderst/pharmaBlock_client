@@ -6,8 +6,6 @@ import Container from 'muicss/lib/react/container'
 import Col from 'muicss/lib/react/col'
 import RaisedButton from 'material-ui/RaisedButton';
 import { ClientResponse } from "http";
-import { default as Web3 } from 'web3';
-const block = require('../../../pharmaBlock_server/chainHelpers.js');
 
 const styles ={
   button: {
@@ -36,8 +34,6 @@ handlePasswordChange = (e)=>{
 
 signIn =(e)=>{
   e.preventDefault();
-  let web3Object = new Web3(window.web3);
-  block.setProvider(web3Object);
   const user = {
     email: this.state.email,
     password: this.state.password,
