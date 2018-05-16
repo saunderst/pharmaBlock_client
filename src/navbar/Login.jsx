@@ -37,7 +37,7 @@ handlePasswordChange = (e)=>{
 signIn =(e)=>{
   e.preventDefault();
   let web3Object = new Web3(window.web3);
-  block.getProvider(web3Object);
+  block.setProvider(web3Object);
   const user = {
     email: this.state.email,
     password: this.state.password,

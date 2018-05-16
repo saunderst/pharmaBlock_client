@@ -37,7 +37,7 @@ class CurrentContracts extends Component {
       .then((response) => {
        console.log(response)
         let activeContracts =[];
-        let dateToday = new Date()/1000
+        let dateToday = Math.trunc((new Date()).getTime()/1000)
         response.forEach((contract) => {
           if (contract.contractStatus === "filled" && dateToday <= contract.end_date) {
             activeContracts.push(contract);
@@ -45,7 +45,7 @@ class CurrentContracts extends Component {
         })
         this.setState({ activeContracts: activeContracts })
       })
-      .catch(e => console.log('Error'))
+      .catch(e => console.log('Error: ', e ))
   }
   render() {
     return (
