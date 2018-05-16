@@ -18,11 +18,13 @@ import Resource from './models/resource.js'
 Resource('login').execute({email, password});           //login
 Resource('login').undo();                               //logout
 
-Resource('patient', address).getInfo();                 //response is patient profile
-Resource('patient', address).getContracts(contractId);  //contractId is optional; response is contract info []
-Resource('patient', address).signContract(contractId);  //response is all contracts for patient []
-Resource('patient', address).createContract();          //response is all contracts for patient []
+Resource('patients', address).getInfo();                 //response is patient profile
+Resource('patients', address).getContracts(contractId);  //contractId is optional; response is contract info []
+Resource('patients', address).signContract(contractId);  //response is all contracts for patient []
+Resource('patients', address).createContract({});          //response is all contracts for patient []
 
-Resource('pharmaco', address).getInfo();                //response is pharmaco profile
-Resource('pharmaco', address).getContracts(contractId); //contractId is optional; response is contract info []
-Resource('pharmaco', address).getDrugs();               //response is all drugs produced by this pharmaco []
+Resource('pharmacos', address).getInfo();                //response is pharmaco profile
+Resource('pharmacos', address).getContracts(contractId); //contractId is optional; response is contract info []
+Resource('pharmacos', address).getDrugs();               //response is all drugs produced by this pharmaco []
+
+Resource('contracts', contractId).getBids();             //response is all bids pertaining to this contract []
