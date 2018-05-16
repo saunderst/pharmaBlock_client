@@ -5,6 +5,7 @@ import Dialog from "material-ui/Dialog";
 import FlatButton from "material-ui/FlatButton";
 import Resource from "../models/resource";
 import TextField from "material-ui/TextField";
+import { default as Web3 } from 'web3';
 const block = require('../../../pharmaBlock_server/chainHelpers.js');
 
 const prescription = {
