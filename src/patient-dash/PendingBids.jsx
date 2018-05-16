@@ -32,16 +32,16 @@ class PendingBids extends Component {
       }
     }
 
-    handleAccept = (id) =>(e) =>{
+    handleAccept = ((e, id, data) => {
       e.preventDefault();
-      Resource('patients',this.props.userId).signContract(id)  
+      Resource('patients',this.props.userId).signContract(id, data)  
       .then(response => {
         console.log("Response: ")
       })
       .catch(error => {
         console.log("Error: " + error)
       })
-  }
+  })
 
     componentDidMount() { 
       console.log(this.props.match.params.id)
@@ -74,7 +74,7 @@ class PendingBids extends Component {
     <Divider />
      </CardText>    
      <CardActions>
-       <RaisedButton  backgroundColor="#20B2AA" label="Accept"  onClick={ (e) =>this.handleAccept(e, bid.cId)} />   
+       <RaisedButton  backgroundColor="#20B2AA" label="Accept"  onClick={ (e) =>this.handleAccept(e, bid.cId, { pharmAddress: bid.pharmaco_pubadd, costPerDose: bid.price_per_mg })} />   
      </CardActions>
    </Card>
       ))}
