@@ -93,6 +93,9 @@ const Resource = (endpoint, address) => {
       } else if (address.substr(0,2) !== '0x' || address.length !== 42) {
         reject('Invalid public address.');
       } else if (endpoint === 'patients') {
+        // hard coding these dates for now; ultimately part of bid
+        data.startDate = Math.trunc((new Date()).getTime()/1000);
+        data.endDate = data.startDate + 30*24*60*60;  // 30 days
         api.post (`${endpoint}/${address}/contracts/${contractId}`, data)
         .then(result => {
           if (result.status !== 200) {
