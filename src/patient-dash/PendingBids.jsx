@@ -16,7 +16,7 @@ const styles = {
   },
   gridList: {
     width: 1000,
-    height: 400,
+    height: 800,
     overflowY: 'auto',
     
   },
@@ -49,7 +49,7 @@ class PendingBids extends Component {
       .then((response) => 
       { console.log(response)
          this.setState(...this.state,{ bids: response })})  
-      .catch(e => console.log('Error'))
+      .catch(e => console.log('Error: ', e))
 
      }
 
@@ -60,7 +60,7 @@ class PendingBids extends Component {
         <div style={styles.root}>
     <GridList
       cols={4}
-      cellHeight={100}
+      cellHeight={250}
       padding={9}
       style={styles.gridList} >
       {this.state.bids.map((bid) => (

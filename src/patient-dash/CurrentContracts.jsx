@@ -37,7 +37,7 @@ class CurrentContracts extends Component {
       .then((response) => {
        console.log(response)
         let activeContracts =[];
-        let dateToday = new Date()/1000
+        let dateToday = Math.trunc((new Date()).getTime()/1000)
         response.forEach((contract) => {
           if (contract.contractStatus === "filled" && dateToday <= contract.end_date) {
             activeContracts.push(contract);
@@ -57,9 +57,8 @@ class CurrentContracts extends Component {
             cols={4}
             cellHeight={100}
             padding={9}
-            style={styles.gridList}
+            style={styles.gridList}>
 
-          >
             {this.state.activeContracts.map((contract) => (
               <div className="active-contracts-card" key={contract.cId}>
                 <Card>
@@ -68,10 +67,10 @@ class CurrentContracts extends Component {
                   </CardMedia>
                   <CardTitle title={contract.brand_name} />
                   <CardText>
-                    <p> hello </p>
                     {contract.description}
                     <Divider />
-                    <p> hello 2  </p>
+                    <p> {contract.brand_name} </p>
+                    <p> {contract.dosage}</p>
                   </CardText>
 
                 </Card>

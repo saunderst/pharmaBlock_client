@@ -37,7 +37,6 @@ class App extends Component {
 handleLogout =(event) =>{
   window.localStorage.clear()
   this.setState({ ...this.state, currentUser: null })
- 
   window.location = "/"
   event.stopPropagation()
 }

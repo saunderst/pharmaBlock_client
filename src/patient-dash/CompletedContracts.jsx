@@ -88,7 +88,7 @@ class CompletedContracts extends Component {
               <TableHeaderColumn tooltip="Drug Name">Drug Name</TableHeaderColumn>
               <TableHeaderColumn tooltip="The Status">Dosage</TableHeaderColumn>
               <TableHeaderColumn tooltip="The Status">Frequency Of Dose</TableHeaderColumn>
-              <TableHeaderColumn tooltip="The Status">Number of Dose</TableHeaderColumn>
+              <TableHeaderColumn tooltip="The Status">Number of Doses</TableHeaderColumn>
               <TableHeaderColumn tooltip="The Status">Cost of Contract</TableHeaderColumn>
             </TableRow>
           </TableHeader>

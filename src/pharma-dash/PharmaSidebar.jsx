@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
 import MenuItem from 'material-ui/MenuItem';
 import Menu from 'material-ui/Menu';
 import Divider from 'material-ui/Divider';
@@ -21,7 +21,9 @@ class PharmaSidebar extends Component  {
        <div className="sidebar-logo">
         <a>
         <img className="brand-image"src="/docs/logo1.gif"/>
+        <Link to="/">
         <span className="brand-title">Pharma.Block</span>
+        </Link>
         </a>
         </div>
         <Divider />

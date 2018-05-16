@@ -26,7 +26,9 @@ class PatientSidebar extends Component  {
        <div className="sidebar-logo">
         <a>
         <img className="brand-image"src="/docs/logo1.gif"/>
+       <Link to="/">
         <span className="brand-title">Pharma.Block</span>
+        </Link>
         </a>
         </div>
         <Divider />
