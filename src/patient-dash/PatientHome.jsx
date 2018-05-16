@@ -5,8 +5,7 @@ import Dialog from "material-ui/Dialog";
 import FlatButton from "material-ui/FlatButton";
 import Resource from "../models/resource";
 import TextField from "material-ui/TextField";
-import { default as Web3 } from 'web3';
-const block = require('../../../pharmaBlock_server/chainHelpers.js');
+
 
 const prescription = {
   prescriptionID: 452356,
@@ -58,8 +57,6 @@ class PatientHome extends Component {
         frequencyOfDose: this.state.frequencyOfDose,
         numberOfDoses: this.state.numberOfDoses
       };
-      let web3Object = new Web3(window.web3);
-      block.setProvider(web3Object);
       this.setState({ openedModal: "" });
       Resource("patients", this.props.userId).createContract(prescription)
         .then(response => {
