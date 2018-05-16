@@ -101,7 +101,7 @@ const Resource = (endpoint, address) => {
           if (result.status !== 200) {
             reject(result.status);
           } else {
-            resolve(getContracts(contractId));
+            resolve(getContracts());
           }
         })
         .catch((errors) => reject(errors));
