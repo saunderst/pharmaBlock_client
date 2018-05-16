@@ -21,7 +21,7 @@ Resource('login').undo();                               //logout
 Resource('patients', address).getInfo();                 //response is patient profile
 Resource('patients', address).getContracts(contractId);  //contractId is optional; response is contract info []
 Resource('patients', address).signContract(contractId);  //response is all contracts for patient []
-Resource('patients', address).createContract();          //response is all contracts for patient []
+Resource('patients', address).createContract({});          //response is all contracts for patient []
 
 Resource('pharmacos', address).getInfo();                //response is pharmaco profile
 Resource('pharmacos', address).getContracts(contractId); //contractId is optional; response is contract info []
