@@ -7,7 +7,6 @@ import Col from 'muicss/lib/react/col'
 import RaisedButton from 'material-ui/RaisedButton';
 import { ClientResponse } from "http";
 
-
 const styles ={
   button: {
     color: '#236B8E'
