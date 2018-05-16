@@ -30,27 +30,27 @@ class PharmaSidebar extends Component  {
   
     <Divider />
     <Link to="/pharma">
-    <MenuItem>Home</MenuItem>
+    <MenuItem><i class="fas fa-home"></i> Home</MenuItem>
     </Link>
     <Divider /> 
     <Link to="/pharma/pending">
-    <MenuItem>Pending Prescriptions</MenuItem>
+    <MenuItem><i class="fas fa-prescription-bottle-alt"></i> Pending Prescriptions</MenuItem>
      </Link> 
      <Divider />   
     <Link to="/pharma/active">
-    <MenuItem>Active Prescriptions</MenuItem>
+    <MenuItem> <i class="fas fa-capsules"></i> Active Prescriptions</MenuItem>
      </Link> 
      <Divider/>   
      <Link to="/pharma/completed">
-    <MenuItem>Completed Prescriptions</MenuItem>
+    <MenuItem><i class="fas fa-clipboard-check"></i> Completed Prescriptions</MenuItem>
      </Link> 
      <Divider/>  
      <Link to="/pharma/products">
-    <MenuItem>Products</MenuItem>
+    <MenuItem><i class="fas fa-tags"></i> Products</MenuItem>
      </Link> 
      <Divider/>  
      <Link to="/pharma/profile">
-    <MenuItem>Company Profile</MenuItem>
+    <MenuItem><i class="fas fa-address-card"></i> Company Profile</MenuItem>
      </Link> 
      <Divider/>  
      

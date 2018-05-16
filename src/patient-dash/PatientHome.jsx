@@ -125,13 +125,16 @@ class PatientHome extends Component {
           >
             <br />
             <TextField
+              disabled={true}
               defaultValue={prescription.prescriptionID}
               name="PrescriptionId"
               floatingLabelText="Prescription ID"
               floatingLabelFixed={true}
               onChange={this.handleChange}
             />
+            <br />
             <TextField
+              disabled={true}
               defaultValue={prescription.drugId}
               name="drugId"
               floatingLabelText="Drug ID"
@@ -140,6 +143,7 @@ class PatientHome extends Component {
             />
             <br />
             <TextField
+              disabled={true}
               defaultValue={prescription.dosage}
               name="dosage"
               floatingLabelText="Dosage"
@@ -148,6 +152,7 @@ class PatientHome extends Component {
             />
             <br />
             <TextField
+              disabled={true}
               defaultValue={prescription.frequencyOfDose}
               name="frequencyOfDose"
               floatingLabelText="Frequency of Dose"
@@ -156,6 +161,7 @@ class PatientHome extends Component {
             />
             <br />
             <TextField
+              disabled={true}
               defaultValue={prescription.numberOfDoses}
               name="numberOfDoses"
               floatingLabelText="Number of Doses"

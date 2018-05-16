@@ -35,15 +35,15 @@ class PatientSidebar extends Component  {
   
     <Divider />
     <Link to="/patient">
-    <MenuItem>Home</MenuItem>
+    <MenuItem> <i class="fas fa-home"></i> Home</MenuItem>
     </Link>
     <Divider /> 
     <Link to="/patient/pending">
-    <MenuItem>Pending Prescriptions</MenuItem>
+    <MenuItem><i class="fas fa-prescription-bottle-alt"></i> Pending Prescriptions</MenuItem>
      </Link> 
      <Divider />   
     <Link to="/patient/completed">
-    <MenuItem>Completed Prescriptions</MenuItem>
+    <MenuItem> <i class="fas fa-clipboard-check"></i> Completed Prescriptions</MenuItem>
      </Link> 
      <Divider/>   
     </Menu>
