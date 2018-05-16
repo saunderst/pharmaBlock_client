@@ -45,7 +45,7 @@ class CurrentContracts extends Component {
         })
         this.setState({ activeContracts: activeContracts })
       })
-      .catch(e => console.log('Error'))
+      .catch(e => console.log('Error: ', e ))
   }
   render() {
     return (
