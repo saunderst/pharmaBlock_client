@@ -86,14 +86,14 @@ const Resource = (endpoint, address) => {
     });
   }
 
-   function signContract (contractId) {
+   function signContract (contractId, data) {
     return new Promise((resolve, reject) => {
       if (contractId.substr(0,2) !== '0x' || contractId.length !== 42) {
         reject('Invalid contract ID.');
       } else if (address.substr(0,2) !== '0x' || address.length !== 42) {
         reject('Invalid public address.');
       } else if (endpoint === 'patients') {
-        api.post (`${endpoint}/${address}/contracts/${contractId}`)
+        api.post (`${endpoint}/${address}/contracts/${contractId}`, data)
         .then(result => {
           if (result.status !== 200) {
             reject(result.status);
