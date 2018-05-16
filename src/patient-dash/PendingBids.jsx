@@ -64,7 +64,7 @@ class PendingBids extends Component {
       padding={9}
       style={styles.gridList} >
       {this.state.bids.map((bid) => (
-     <Card key={bid.cId}>
+     <Card key={bid.id}>
      <CardMedia>
        <img src={`/docs/drugs/${bid.image_url}`}  alt="" className="pending-contract-card" />
      </CardMedia>
