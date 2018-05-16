@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {GridList, GridTile} from 'material-ui/GridList';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
 import axios from 'axios';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -28,7 +28,8 @@ class PendingBids extends Component {
       super(props);
       this.state = {
         cId: (this.props.match.params.id || null),
-        bids:[]
+        bids:[],
+        redirect:false
       }
     }
 
@@ -36,7 +37,9 @@ class PendingBids extends Component {
       e.preventDefault();
       Resource('patients',this.props.userId).signContract(id, data)  
       .then(response => {
-        console.log("Response: ")
+        console.log("Response: ",response)
+
+       this.setState({redirect:true})
       })
       .catch(error => {
         console.log("Error: " + error)
@@ -54,6 +57,11 @@ class PendingBids extends Component {
      }
 
     render() {
+      if(this.state.redirect === true) {
+        console.log(this.state.redirect)
+        return  <Redirect to={"/patient"}/>
+        
+      }
       return (
         <div className="pending-contracts-container">
            <h2> Pending Prescription Bids</h2>
