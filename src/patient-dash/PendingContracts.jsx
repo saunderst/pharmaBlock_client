@@ -52,7 +52,7 @@ class PendingContracts extends Component {
         <div style={styles.root}>
           <GridList
             cols={4}
-            cellHeight={20}
+            cellHeight={380}
             padding={9}
             style={styles.gridList}
           >
