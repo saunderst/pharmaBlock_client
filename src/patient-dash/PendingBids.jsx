@@ -60,7 +60,7 @@ class PendingBids extends Component {
         <div style={styles.root}>
     <GridList
       cols={4}
-      cellHeight={250}
+      cellHeight={300}
       padding={9}
       style={styles.gridList} >
       {this.state.bids.map((bid) => (

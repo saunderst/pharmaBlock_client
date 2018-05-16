@@ -42,7 +42,6 @@ signIn =(e)=>{
   .then((response) =>
     {   
       
-     window.localStorage.auth_token = response.data.token;
     console.log(response.data)
       this.setState(...this.state, {
         userId: response.data.userId,
