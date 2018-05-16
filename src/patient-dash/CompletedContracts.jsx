@@ -17,33 +17,7 @@ const styles = {
   },
 };
 
-const tableData = [
-  {
-    name: 'Hello Drug',
-    status: 'November',
-  },
-  {
-    name: 'Nice Drug',
-    status: 'August',
-  },
-  {
-    name: 'Bad Drug',
-    status: 'July',
-  },
-  {
-    name: 'Suspicious Drug',
-    status: 'June',
-  },
-  {
-    name: 'Happy Drug',
-    status: 'December',
-  },
-  {
-    name: 'Sad Drug',
-    status: 'March',
-  },
 
-];
 class CompletedContracts extends Component {
     constructor(props) {
       super(props);
@@ -76,10 +50,11 @@ class CompletedContracts extends Component {
     .then((response) => 
     { console.log(response)
       let completedContracts =[];
-      let dateToday = new Date() /1000
+      let dateToday = Math.trunc((new Date()).getTime()/1000)
       console.log(dateToday)
       response.forEach((contract) => {
-        if (contract.contractStatus === "filled" && dateToday > contract.end_date) {
+        {
+          if (contract.contractStatus === "filled" && dateToday > contract.end_date)
           completedContracts.push(contract);
         }
       })
@@ -110,9 +85,11 @@ class CompletedContracts extends Component {
       
             <TableRow>
               <TableHeaderColumn tooltip="The ID">Prescription ID</TableHeaderColumn>
-              <TableHeaderColumn tooltip="The Name">Drug Name</TableHeaderColumn>
-              <TableHeaderColumn tooltip="The Status">End Date</TableHeaderColumn>
-              <TableHeaderColumn tooltip="The Status">Cost</TableHeaderColumn>
+              <TableHeaderColumn tooltip="Drug Name">Drug Name</TableHeaderColumn>
+              <TableHeaderColumn tooltip="The Status">Dosage</TableHeaderColumn>
+              <TableHeaderColumn tooltip="The Status">Frequency Of Dose</TableHeaderColumn>
+              <TableHeaderColumn tooltip="The Status">Number of Dose</TableHeaderColumn>
+              <TableHeaderColumn tooltip="The Status">Cost of Contract</TableHeaderColumn>
             </TableRow>
           </TableHeader>
           <TableBody
@@ -121,11 +98,13 @@ class CompletedContracts extends Component {
             showRowHover={this.state.showRowHover}
             stripedRows={this.state.stripedRows}
           >
-            {this.state.contracts.map( (row, contract) => (
+            {this.state.contracts.map( (contract) => (
               <TableRow key={contract.cId}>
                 <TableRowColumn>{contract.cId}</TableRowColumn>
-                <TableRowColumn>{contract.brand_name}</TableRowColumn>
-                <TableRowColumn>{row.status}</TableRowColumn>
+                <TableRowColumn>{contract.dosage}</TableRowColumn>
+                <TableRowColumn>{contract.drugId}</TableRowColumn>
+                <TableRowColumn>{contract.frequencyOfDose}</TableRowColumn>
+                <TableRowColumn>{contract.numberOfDoses}</TableRowColumn>
               </TableRow>
               ))}
           </TableBody>

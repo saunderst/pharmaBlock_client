@@ -17,33 +17,7 @@ const styles = {
   },
 };
 
-const tableData = [
-  {
-    name: 'Hello Drug',
-    status: 'November',
-  },
-  {
-    name: 'Nice Drug',
-    status: 'August',
-  },
-  {
-    name: 'Bad Drug',
-    status: 'July',
-  },
-  {
-    name: 'Suspicious Drug',
-    status: 'June',
-  },
-  {
-    name: 'Happy Drug',
-    status: 'December',
-  },
-  {
-    name: 'Sad Drug',
-    status: 'March',
-  },
 
-];
 class PharmaCompleted extends Component {
     constructor(props) {
       super(props);
@@ -76,7 +50,7 @@ class PharmaCompleted extends Component {
     .then((response) => 
     { console.log(response)
       let completedContracts =[];
-      let dateToday = new Date()/1000
+      let dateToday = Math.trunc((new Date()).getTime()/1000)
       response.forEach((contract) => {
         if (contract.contractStatus === "filled" && dateToday > contract.end_date) {
           completedContracts.push(contract);
@@ -108,8 +82,10 @@ class PharmaCompleted extends Component {
             <TableRow>
               <TableHeaderColumn tooltip="The ID">Prescription ID</TableHeaderColumn>
               <TableHeaderColumn tooltip="The Name">Drug Name</TableHeaderColumn>
-              <TableHeaderColumn tooltip="The Status">End Date</TableHeaderColumn>
-              <TableHeaderColumn tooltip="The Status">Cost</TableHeaderColumn>
+              <TableHeaderColumn tooltip="Dosage">Dosage</TableHeaderColumn>
+              <TableHeaderColumn tooltip="Frequency">Frequency Of Dose</TableHeaderColumn>
+              <TableHeaderColumn tooltip="Number">Number of Doses</TableHeaderColumn>
+              <TableHeaderColumn tooltip="Number">Cost of Contract</TableHeaderColumn>
             </TableRow>
           </TableHeader>
           <TableBody
@@ -118,11 +94,15 @@ class PharmaCompleted extends Component {
             showRowHover={this.state.showRowHover}
             stripedRows={this.state.stripedRows}
           >
-            {this.state.contracts.map( (row, index) => (
-              <TableRow key={index}>
-                <TableRowColumn>{index}</TableRowColumn>
-                <TableRowColumn>{row.name}</TableRowColumn>
-                <TableRowColumn>{row.status}</TableRowColumn>
+            {this.state.contracts.map( (contract) => (
+              <TableRow key={contract.cId}>
+                <TableRowColumn>{contract.cId}</TableRowColumn>
+                <TableRowColumn>{contract.brand_name}</TableRowColumn>
+                <TableRowColumn>{contract.dosage}</TableRowColumn>
+                <TableRowColumn>{contract.drugId}</TableRowColumn>
+                <TableRowColumn>{contract.frequencyOfDose}</TableRowColumn>
+                <TableRowColumn>{contract.numberOfDoses}</TableRowColumn>
+                <TableRowColumn>{contract.cost_per_mg}</TableRowColumn>
               </TableRow>
               ))}
           </TableBody>

@@ -1,35 +1,103 @@
 import React, { Component } from "react";
 import Resource from '../models/resource'
-
+import { Table, TableBody, TableFooter,TableHeader, TableHeaderColumn,TableRow,TableRowColumn,
+} from 'material-ui/Table';
 
 class PharmaActive extends Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        contracts: []
+      constructor(props) {
+        super(props);
+        this.state = {
+          fixedHeader: true,
+          fixedFooter: true,
+          stripedRows: false,
+          showRowHover: false,
+          selectable: true,
+          multiSelectable: false,
+          enableSelectAll: false,
+          deselectOnClickaway: true,
+          showCheckboxes: true,
+          height: '600px',
+          contracts: [],
       }
-    }
+      }
+      handleToggle = (event, toggled) => {
+      this.setState({
+        [event.target.name]: toggled,
+      });
+    };
+  
+    handleChange = (event) => {
+      this.setState({height: event.target.value});
+    };
+  
     componentWillMount() { 
       Resource('pharmacos', this.props.userId).getContracts()
       .then((response) => 
       { console.log(response)
-        let activeContracts =[];
-        let dateToday = new Date()/1000
+        let completedContracts =[];
+        let dateToday = Math.trunc((new Date()).getTime()/1000)
         response.forEach((contract) => {
-          if (contract.contractStatus === "filled" && dateToday >= contract.end_date) {
-            activeContracts.push(contract);
+          if (contract.contractStatus === "filled" && dateToday <= contract.end_date) {
+            completedContracts.push(contract);
           }
         })
-         this.setState(...this.state,{ contracts: activeContracts})})
+         this.setState(...this.state,{ contracts: completedContracts})})
      
       .catch(e => console.log('Error'))
      }
-
-    render() {
-      return (
-        <div className="pharma-active-container">
+  
+      render() {
+        return (
+      <div className="pharma-active-container">
+      <h2>Active Prescription Contracts</h2>
+      <div>
+          <Table
+            height={this.state.height}
+            fixedHeader={this.state.fixedHeader}
+            fixedFooter={this.state.fixedFooter}
+            selectable={this.state.selectable}
+            multiSelectable={this.state.multiSelectable}
+          >
+            <TableHeader
+              displaySelectAll={this.state.showCheckboxes}
+              adjustForCheckbox={this.state.showCheckboxes}
+              enableSelectAll={this.state.enableSelectAll}
+            >
+        
+              <TableRow>
+                <TableHeaderColumn tooltip="The ID">Prescription ID</TableHeaderColumn>
+                <TableHeaderColumn tooltip="The Name">Drug Name</TableHeaderColumn>
+                <TableHeaderColumn tooltip="Dosage">Dosage</TableHeaderColumn>
+                <TableHeaderColumn tooltip="Frequency">Frequency Of Dose</TableHeaderColumn>
+                <TableHeaderColumn tooltip="Number">Number of Doses</TableHeaderColumn>
+                <TableHeaderColumn tooltip="Number">Cost of Contract</TableHeaderColumn>
+              </TableRow>
+            </TableHeader>
+            <TableBody
+              displayRowCheckbox={this.state.showCheckboxes}
+              deselectOnClickaway={this.state.deselectOnClickaway}
+              showRowHover={this.state.showRowHover}
+              stripedRows={this.state.stripedRows}
+            >
+              {this.state.contracts.map( (contract) => (
+                <TableRow key={contract.cId}>
+                  <TableRowColumn>{contract.cId}</TableRowColumn>
+                  <TableRowColumn>{contract.brand_name}</TableRowColumn>
+                  <TableRowColumn>{contract.dosage}</TableRowColumn>
+                  <TableRowColumn>{contract.drugId}</TableRowColumn>
+                  <TableRowColumn>{contract.frequencyOfDose}</TableRowColumn>
+                  <TableRowColumn>{contract.numberOfDoses}</TableRowColumn>
+                  <TableRowColumn>{contract.cost_per_mg}</TableRowColumn>
+                </TableRow>
+                ))}
+            </TableBody>
+     
+          </Table>
+  
         
         </div>
+  
+      </div>
 
       );
     }
