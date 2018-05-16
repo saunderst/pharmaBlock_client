@@ -74,7 +74,7 @@ class PendingBids extends Component {
     <Divider />
      </CardText>    
      <CardActions>
-       <RaisedButton  backgroundColor="#20B2AA" label="Accept"  onClick={ (e) =>this.handleAccept(bid.cId, e)} />   
+       <RaisedButton  backgroundColor="#20B2AA" label="Accept"  onClick={ (e) =>this.handleAccept(e, bid.cId)} />   
      </CardActions>
    </Card>
       ))}
