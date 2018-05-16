@@ -64,17 +64,18 @@ class PendingBids extends Component {
       padding={9}
       style={styles.gridList} >
       {this.state.bids.map((bid) => (
-     <Card>
+     <Card key={bid.cId}>
      <CardMedia>
        <img src={`/docs/drugs/${bid.image_url}`}  alt="" className="pending-contract-card" />
      </CardMedia>
-     <CardTitle title={bid.brand_name}  />
+     <CardTitle title={bid.name}  />
      <CardText>
     <p>Cost: {bid.price_per_mg} per mg</p>
+    <p>Duration: 30 Days</p>     
     <Divider />
      </CardText>    
      <CardActions>
-       <RaisedButton  backgroundColor="#20B2AA" label="Accept"  onClick={ (e) =>this.handleAccept(e, bid.cId, { pharmAddress: bid.pharmaco_pubadd, costPerDose: bid.price_per_mg })} />   
+       <RaisedButton  backgroundColor="#20B2AA" label="Accept"  onClick={ (e) =>this.handleAccept(e, bid.contract_pubaddr, { pharmAddress: bid.pharmaco_pubaddr, costPerDose: bid.price_per_mg }).bind(this)} />   
      </CardActions>
    </Card>
       ))}
