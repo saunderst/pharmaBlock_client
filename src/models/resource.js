@@ -30,7 +30,7 @@ const Resource = (endpoint, address) => {
 
   function getInfo () {
     return new Promise((resolve, reject) => {
-      if (address.substr(0,2) !== '0x' || address.length !== 42) {
+      if (!address || address.substr(0,2) !== '0x' || address.length !== 42) {
         reject('Invalid public address.');
       } else if (endpoint === 'patients' || endpoint === 'pharmacos') {
         api.get (`${endpoint}/${address}`)
@@ -46,7 +46,7 @@ const Resource = (endpoint, address) => {
     return new Promise((resolve, reject) => {
       if (contractId && (contractId.substr(0,2) !== '0x' || contractId.length !== 42)) {
         reject('Invalid contract ID.');
-      } else if (address.substr(0,2) !== '0x' || address.length !== 42) {
+      } else if (!address || address.substr(0,2) !== '0x' || address.length !== 42) {
         reject('Invalid public address.');
       } else if (endpoint === 'patients' || endpoint === 'pharmacos') {
         api.get (`${endpoint}/${address}/contracts/${contractId || ''}`)
@@ -60,7 +60,7 @@ const Resource = (endpoint, address) => {
 
   function getDrugs () {
     return new Promise((resolve, reject) => {
-      if (address.substr(0,2) !== '0x' || address.length !== 42) {
+      if (!address || address.substr(0,2) !== '0x' || address.length !== 42) {
         reject('Invalid public address.');
       } else if (endpoint === 'pharmacos') {
         api.get (`${endpoint}/${address}/drugs`)
@@ -74,7 +74,7 @@ const Resource = (endpoint, address) => {
 
   function getBids () {
     return new Promise((resolve, reject) => {
-      if (address.substr(0,2) !== '0x' || address.length !== 42) {
+      if (!address || address.substr(0,2) !== '0x' || address.length !== 42) {
         reject('Invalid public address.');
       } else if (endpoint === 'contracts') {
         api.get (`${endpoint}/${address}/bids`)
@@ -88,9 +88,9 @@ const Resource = (endpoint, address) => {
 
    function signContract (contractId, data) {
     return new Promise((resolve, reject) => {
-      if (contractId.substr(0,2) !== '0x' || contractId.length !== 42) {
+      if (!contractId || contractId.substr(0,2) !== '0x' || contractId.length !== 42) {
         reject('Invalid contract ID.');
-      } else if (address.substr(0,2) !== '0x' || address.length !== 42) {
+      } else if (!address || address.substr(0,2) !== '0x' || address.length !== 42) {
         reject('Invalid public address.');
       } else if (endpoint === 'patients') {
         // hard coding these dates for now; ultimately part of bid
@@ -113,7 +113,7 @@ const Resource = (endpoint, address) => {
 
   function createContract (data) {
     return new Promise((resolve, reject) => {
-      if (address.substr(0, 2) !== '0x' || address.length !== 42) {
+      if (!address || address.substr(0, 2) !== '0x' || address.length !== 42) {
         reject('Invalid public address.');
       } else if (endpoint === 'patients') {
         if (!data.drugId) reject('missing drugID')
