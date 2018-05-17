@@ -16,8 +16,8 @@ const styles = {
     
   },
   gridList: {
-    width: 1000,
-    height: 700,
+    width: 1200,
+    height: 600,
     overflowY: 'auto',
     
   },
@@ -70,7 +70,7 @@ class CurrentContracts extends Component {
         <div style={styles.root}>
           <GridList
             cols={4}
-            cellHeight={50}
+            cellHeight={20}
             padding={9}
             style={styles.gridList}>
 
