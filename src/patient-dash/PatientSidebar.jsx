@@ -27,11 +27,10 @@ class PatientSidebar extends Component  {
         <a>
         <img className="brand-image"src="/docs/logo1.gif"/>
        <Link to="/">
-        <span className="brand-title">Pharma.Block</span>
+        <span className="brand-title">Pharma.<strong>Block</strong></span>
         </Link>
         </a>
         </div>
-        <Divider />
     <Menu>
    
   

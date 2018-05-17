@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Exo+2:900');
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,400i,800,900,900i');
 @import url('https://fonts.googleapis.com/css?family=Hind+Vadodara:400,500,600');
+@import url('https://fonts.googleapis.com/css?family=Bree+Serif');
 * {
   font-family:'Raleway';
 }
@@ -11,7 +12,13 @@
 }
 body {
 	background-color:#F0F8FF;
+
 	
+}
+
+main {
+	padding-left:18px;
+	padding-right:18px;
 }
 
 h1 {
@@ -38,8 +45,7 @@ h1 {
   }
   height:500px;
   overflow: hidden;
-  margin-left:10px;
-  margin-right:10px;
+  
   opacity:0.9;
 }
 
@@ -297,54 +303,26 @@ h1 {
 }
 
 
-
 .team-container {
 	background-color:gray;
 }
 
-.card {
-	width: 26rem;
-	border:2px solid black;
-	height:35rem;
 
-	img {
-		width:25rem;
-		padding-left:5px;
-		padding-right:5px;
-		padding-top:5px;
-	}
-	.card-body {
-		padding-left:5px;
-		padding-right:5px;
-		weight:bold;
-	}
- footer {
-	 border-top:1px solid black; 
- }
- .card-price {
-	 float:right;
-	 margin-right:5px;
-	 margin-top:5px;
- }
-#details-button {
-	margin-top:5px;
-	margin-left:5px;
-}
-}
 
 #navbar{
 	background-color: white !important;
 	position:fixed !important;
+	height:95px;
 }
 
 .brand-image {
-	width:50px;
+	width:60px;
 }
 
 .brand-title {
 	font-family: 'Hind Vadodara', sans-serif;
 	font-weight:400; 
-	font-size:2rem;
+	font-size:2.8rem;
 	color:#236B8E
 }
 
@@ -359,16 +337,14 @@ h1 {
 
 .patient-home-container {
 	margin-left:280px;
-	margin-top:40px;
+	margin-top:60px;
 }
 
-.add-contacts-container {
-	margin-left:400px;
-}
+
 
 .pending-contracts-container {
 	margin-left:300px;
-	margin-top:40px;
+	margin-top:60px;
 }
 
 .login-button {
@@ -379,22 +355,19 @@ h1 {
 
   .pharma-home-container{
 	margin-left:280px;
-	margin-top:40px;
+	margin-top:60px;
   }
 
-  .pharma-pending-container {
-	  margin-left:300px;
-	  margin-top:40px;
-  }
+
 
   .pharma-products-container {
-	  margin-left:300px;
-	  margin-top:40px;
+	  margin-left:280px;
+	  margin-top:60px;
   }
 
   .pharma-profile-container {
 	  margin-left:300px;
-	  margin-top:40px;
+	  margin-top:60px;
   }
 
   .pending-contract-bid {
@@ -404,12 +377,12 @@ h1 {
 
   .completed-contracts-container {
 	  margin-left:300px;
-	  margin-top:40px;
+	  margin-top:60px;
   }
 
   .pharma-completed-container {
 	  margin-left:300px;
-	  margin-top:40px;
+	  margin-top:60px;
   }
 
   .pending-contract-image {
@@ -421,20 +394,29 @@ h1 {
   }
 
   .section-a-logo {
-	  size:3rem;
-	  color:black;
+	  size:2.7rem;
+	  color:#2F4F4F;
+	  padding-left:10px;
+	  line-height: 85px;
+	  text-align: center;
+	  filter: drop-shadow(0px 3px 8px rgba(0,0,0, 0.5));
+	  text-outline: 1px solid black;
+	  padding-bottom:10px;
+	 
+
   }
 
   .pharma-active-container {
 	  margin-left:300px;
-	  margin-top:40px;
+	  margin-top:60px;
   }
 
 
   .mission-container {
-	  background-color: #236B8E;
+	
 	  padding-top:30px;
 	  padding-bottom:30px;
+	  
   }
 
  .col-sm-6 {
@@ -442,7 +424,9 @@ h1 {
  }
 
  .blocks-gif {
-	 width:800px;
+	 width:1150px;
+	 margin-left:40px;
+	 margin-right:40px;
  }
 
 .audience-container {
@@ -450,8 +434,8 @@ h1 {
 }
 
  #mission-left {
-	 margin-left:230px;
-	 color:white;
+	 margin-left:40px;
+	//  color:white;
 	 font-size:1.2em;
  }
 
@@ -469,3 +453,21 @@ h1 {
 	margin-bottom:30px;
 	color:#236B8E;
 }
+
+.section-a-container {
+   margin-left:70px;
+   margin-top:70px;
+}
+
+.section-a-header {
+	text-align:left;
+	margin-top:0;
+	font-size:1.9em;
+	  color: #2E4A62;
+}
+
+.mission-header {
+	font-size:3em;
+	
+}
+

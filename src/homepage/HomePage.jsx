@@ -17,10 +17,11 @@ class HomePage extends Component {
           <div className="blocks-container">
             <Block />
           </div>
-          <div>
+          
+          <div className="section-a-container">
             <h1 className="section-a-logo"> Leveraging the power of blockchain technology</h1>
             <h3 className="section-a-header">
-            PharmaBlock is the best software platform for connecting patients with pharmaceuticals directly through smart contracts. We handle contracts in a secure and state-of-the-art way for clients around the world.
+            PharmaBlock is the best software platform for connecting <br/>patients with pharmaceuticals directly through smart contracts
             </h3>
              
           </div>

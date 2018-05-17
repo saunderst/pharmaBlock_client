@@ -65,9 +65,9 @@ return(
                 render={(props) => <Login {...props} handleLogin={this.handleLogin}  />} />
         <Route  path='/patient' render={(props) => <PatientIndex {...props} userName={this.state.userName} userId={this.state.userId}/>} />
         <Route  path='/pharma'  render={(props) => <PharmaIndex {...props} userId={this.state.userId} userName={this.state.userName}/>} />   
-    <Footer/>
     </Switch>
     </main>
+    <Footer/>
    </div>
     </MuiThemeProvider>
   </Router>

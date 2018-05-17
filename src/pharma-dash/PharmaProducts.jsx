@@ -45,7 +45,7 @@ class PharmaProducts extends Component {
     return (
  
   <div className="pharma-products-container">
-  <h2> Products</h2>
+  <h2 className="page-headers"> Products</h2>
   <div className="products-container">
 
   <div style={styles.root}>

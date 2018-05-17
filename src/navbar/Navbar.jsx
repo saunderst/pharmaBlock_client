@@ -7,7 +7,11 @@ import FlatButton from "material-ui/FlatButton";
 
 const styles = {
   button: {
-    color: "#236B8E"
+    color: "#236B8E",
+    fontSize:200,
+    height:60,
+    width:70,
+    marginLeft:10
   }
 };
 
@@ -20,7 +24,6 @@ class NavBar extends Component {
     if (this.props.currentUser) {
       loginMenu = (
         <div>
-          <span>{this.props.userName}</span>
           <FlatButton
             label="Logout"
             onClick={this.props.handleLogout}
@@ -52,7 +55,7 @@ class NavBar extends Component {
           <a>
             <img className="brand-image" src="/docs/logo1.gif" />
             <Link to="/">
-              <span className="brand-title">Pharma.Block</span>
+              <span className="brand-title">Pharma.<strong>Block</strong></span>
             </Link>
           </a>
         }
