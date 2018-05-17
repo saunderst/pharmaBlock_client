@@ -43,7 +43,7 @@ h1 {
 		blend-mode: multiply;
     size: cover;
   }
-  height:500px;
+  height:600px;
   overflow: hidden;
   
   opacity:0.9;
@@ -601,3 +601,7 @@ h1 {
 	font-size:3em;
 }
 
+.img-responsive {
+	width:230px;
+	height:230px;
+}

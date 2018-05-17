@@ -15,7 +15,7 @@ class Team extends Component {
               <div class="team-member">
                 <div class="team-img">
                   <img
-                    src="/docs/patrick.jpg"
+                    src="/docs/jody.jpg"
                     alt="team member"
                     class="img-responsive"
                   />
@@ -37,7 +37,7 @@ class Team extends Component {
               <div className="team-member">
                 <div className="team-img">
                   <img
-                    src="/docs/patrick.jpg"
+                    src="/docs/jacob.jpg"
                     alt="team member"
                     className="img-responsive"
                   />
@@ -61,7 +61,7 @@ class Team extends Component {
               <div className="team-member">
                 <div className="team-img">
                   <img
-                    src="/docs/patrick.jpg"
+                    src="/docs/thomas.jpg"
                     alt="team member"
                     className="img-responsive"
                   />
