@@ -55,7 +55,7 @@ return(
   <MuiThemeProvider>
     <div>
     <NavBar handleLogin={this.handleLogin} handleLogout = {this.handleLogout}
-    currentUser={this.state.currentUser}/>
+    currentUser={this.state.currentUser} userName={this.state.userName}/>
    <div style={{ paddingTop: 50 }}></div>
     <main>
       <Switch>

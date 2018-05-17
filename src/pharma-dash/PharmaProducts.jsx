@@ -61,7 +61,7 @@ class PharmaProducts extends Component {
           title={product.brand_name}
           titleStyle={styles.titleStyle} 
           subtitleStyle={styles.subtitleStyle}
-          subtitle={<span className="description"><b>{product.description}<div className="price-product">$ {product.price_per_mg} per mg</div></b></span>          
+          subtitle={<span className="description"><b>{product.description}<div className="price-product">$ {product.price_per_mg} per dose</div></b></span>          
         }
           actionPosition="left"
           titlePosition="bottom"

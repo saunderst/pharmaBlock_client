@@ -17,7 +17,10 @@ const styles = {
     width: 1000,
     height: 800,
     overflowY: "auto"
-  }
+  },
+  card: {
+    padding:5,  
+  },
 };
 
 class PendingContracts extends Component {
@@ -48,7 +51,7 @@ class PendingContracts extends Component {
   render() {
     return (
       <div className="pending-contracts-container">
-        <h2> Pending Prescriptions</h2>
+        <h2 className="page-headers"> Pending Prescriptions</h2>
         <div style={styles.root}>
           <GridList
             cols={4}
@@ -66,9 +69,12 @@ class PendingContracts extends Component {
                       className="pending-contract-image"
                     />
                   </CardMedia>
-                  <CardTitle title={contract.generic_name} />
-                  <CardText>
+                  <CardTitle title={contract.generic_name} style={styles.card}/>
+                  <CardText style={styles.card}>
                     {contract.description}
+                    <p><strong>Number of doses: </strong>{contract.numberOfDoses}</p>
+                    <p><strong>Dosage:</strong> {contract.dosage}mg</p>
+                    <p><strong>Frequency:</strong> {contract.frequencyOfDose} times a day</p>
                     <Divider />
                   </CardText>
 

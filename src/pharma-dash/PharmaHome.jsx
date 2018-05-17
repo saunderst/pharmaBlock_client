@@ -17,8 +17,7 @@ class PharmaHome extends Component {
     return (
 
       <div className="pharma-home-container">
-        <h3>Welcome Back {this.props.userName}</h3>
-        <h3>Your Stats</h3>
+        <h2 className="page-headers">GRIFOLS USA </h2>
         <PharmaSales />
         <div className="analytics-container">
           <PharmaHeatmap />

@@ -21,7 +21,22 @@ const styles = {
     overflowY: 'auto',
     
   },
+
+  card: {
+    padding:5,  
+  },
+  picture: {
+   width:30,
+   height: 130,
+  }
 };
+
+const contractPics = ["colorpill.jpg", "pill12.jpg", "pill13.jpg", "glitterpill.jpg", "pill9.jpg", "rocketcandy.jpg", "lightpill.jpg", "pinktablet.jpg", "pill7.jpg", "moodpill.jpg", "pill3.jpg", "pill8.jpg", "rocketpill.jpg", "rusticpill.jpg" ]
+function randomPics(){
+  var random = contractPics[Math.floor(Math.random() * contractPics.length)];
+  return random
+}
+
 
 class CurrentContracts extends Component {
   constructor(props) {
@@ -51,11 +66,11 @@ class CurrentContracts extends Component {
     return (
 
       <div className="active-contracts-container">
-        <h4>Active Prescriptions</h4>
+        <h2 className="page-headers">Active Prescriptions</h2>
         <div style={styles.root}>
           <GridList
             cols={4}
-            cellHeight={100}
+            cellHeight={295}
             padding={9}
             style={styles.gridList}>
 
@@ -63,16 +78,16 @@ class CurrentContracts extends Component {
               <div className="active-contracts-card" key={contract.cId}>
                 <Card>
                   <CardMedia>
-                    <img src={`/docs/drugs/${contract.image_url}`} alt="" className="active-contract-card" />
+                    <img src={`/docs/drugs/${randomPics()}`} alt="" style={styles.picture} />
                   </CardMedia>
-                  <CardTitle title={contract.brand_name} />
-                  <CardText>
-                    {contract.description}
+                  <CardTitle title={contract.name} style={styles.card} />
+                  <CardText style={styles.card}>
                     <Divider />
-                    <p> {contract.brand_name} </p>
-                    <p> {contract.dosage}</p>
-                  </CardText>
 
+                    <p className="card-description"> {contract.description}</p>
+                    <p><strong>Number of Doses:</strong> {contract.numberOfDoses}</p>
+                    <p><strong>Frequency:</strong> {contract.dosage}mg {contract.frequencyOfDose} times a day</p>
+                  </CardText>
                 </Card>
               </div>
             ))}

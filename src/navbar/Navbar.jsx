@@ -20,6 +20,7 @@ class NavBar extends Component {
     if (this.props.currentUser) {
       loginMenu = (
         <div>
+          <span>{this.props.userName}</span>
           <FlatButton
             label="Logout"
             onClick={this.props.handleLogout}

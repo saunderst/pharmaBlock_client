@@ -68,7 +68,7 @@ class CompletedContracts extends Component {
     render() {
       return (
     <div className="completed-contracts-container">
-    <h2>Completed Prescriptions</h2>
+    <h2 className="page-headers">Completed Prescriptions</h2>
     <div>
         <Table
           height={this.state.height}
@@ -84,12 +84,10 @@ class CompletedContracts extends Component {
           >
       
             <TableRow>
-              <TableHeaderColumn tooltip="The ID">Prescription ID</TableHeaderColumn>
+              <TableHeaderColumn tooltip="The ID">Contract ID</TableHeaderColumn>
               <TableHeaderColumn tooltip="Drug Name">Drug Name</TableHeaderColumn>
-              <TableHeaderColumn tooltip="The Status">Dosage</TableHeaderColumn>
-              <TableHeaderColumn tooltip="The Status">Frequency Of Dose</TableHeaderColumn>
-              <TableHeaderColumn tooltip="The Status">Number of Doses</TableHeaderColumn>
-              <TableHeaderColumn tooltip="The Status">Cost of Contract</TableHeaderColumn>
+              <TableHeaderColumn tooltip="Doses">Number of Doses</TableHeaderColumn>
+              <TableHeaderColumn tooltip="Cost">Cost of Contract</TableHeaderColumn>
             </TableRow>
           </TableHeader>
           <TableBody
@@ -101,10 +99,9 @@ class CompletedContracts extends Component {
             {this.state.contracts.map( (contract) => (
               <TableRow key={contract.cId}>
                 <TableRowColumn>{contract.cId}</TableRowColumn>
-                <TableRowColumn>{contract.dosage}</TableRowColumn>
-                <TableRowColumn>{contract.drugId}</TableRowColumn>
-                <TableRowColumn>{contract.frequencyOfDose}</TableRowColumn>
+                <TableRowColumn>{contract.generic_name}</TableRowColumn>
                 <TableRowColumn>{contract.numberOfDoses}</TableRowColumn>
+                <TableRowColumn>${contract.costPerDose *contract.numberOfDoses}</TableRowColumn>
               </TableRow>
               ))}
           </TableBody>

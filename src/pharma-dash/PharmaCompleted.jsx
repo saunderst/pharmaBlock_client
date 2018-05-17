@@ -80,12 +80,11 @@ class PharmaCompleted extends Component {
           >
       
             <TableRow>
-              <TableHeaderColumn tooltip="The ID">Prescription ID</TableHeaderColumn>
-              <TableHeaderColumn tooltip="The Name">Drug Name</TableHeaderColumn>
-              <TableHeaderColumn tooltip="Dosage">Dosage</TableHeaderColumn>
-              <TableHeaderColumn tooltip="Frequency">Frequency Of Dose</TableHeaderColumn>
-              <TableHeaderColumn tooltip="Number">Number of Doses</TableHeaderColumn>
-              <TableHeaderColumn tooltip="Number">Cost of Contract</TableHeaderColumn>
+            <TableHeaderColumn tooltip="The ID">Contract ID</TableHeaderColumn>
+              <TableHeaderColumn tooltip="Drug Name">Generic Name</TableHeaderColumn>
+              <TableHeaderColumn tooltip="Drug Name">Brand Name</TableHeaderColumn>
+              <TableHeaderColumn tooltip="Doses">Number of Doses</TableHeaderColumn>
+              <TableHeaderColumn tooltip="Cost">Cost of Contract</TableHeaderColumn>
             </TableRow>
           </TableHeader>
           <TableBody
@@ -97,12 +96,10 @@ class PharmaCompleted extends Component {
             {this.state.contracts.map( (contract) => (
               <TableRow key={contract.cId}>
                 <TableRowColumn>{contract.cId}</TableRowColumn>
+                <TableRowColumn>{contract.name}</TableRowColumn>
                 <TableRowColumn>{contract.brand_name}</TableRowColumn>
-                <TableRowColumn>{contract.dosage}</TableRowColumn>
-                <TableRowColumn>{contract.drugId}</TableRowColumn>
-                <TableRowColumn>{contract.frequencyOfDose}</TableRowColumn>
                 <TableRowColumn>{contract.numberOfDoses}</TableRowColumn>
-                <TableRowColumn>{contract.cost_per_mg}</TableRowColumn>
+                <TableRowColumn>${contract.costPerDose *contract.numberOfDoses}</TableRowColumn>
               </TableRow>
               ))}
           </TableBody>

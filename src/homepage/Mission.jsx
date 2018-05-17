@@ -10,7 +10,9 @@ class MissionStatement extends Component {
         <div className="mission-container">
           <div className="row">
             <div className="col-sm-6">     
+              <div className="blocks-overlay">
               <img className="blocks-gif" src="docs/block4.gif" />
+              </div>
             </div>
             <div className="col-sm-6" id="mission-left">
             <h2>Our Mission</h2>

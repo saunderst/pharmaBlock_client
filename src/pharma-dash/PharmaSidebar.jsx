@@ -34,10 +34,6 @@ class PharmaSidebar extends Component  {
     <Link to="/pharma">
     <MenuItem><i class="fas fa-home"></i> Home</MenuItem>
     </Link>
-    <Divider /> 
-    <Link to="/pharma/pending">
-    <MenuItem><i class="fas fa-prescription-bottle-alt"></i> Pending Prescriptions</MenuItem>
-     </Link> 
      <Divider />   
     <Link to="/pharma/active">
     <MenuItem> <i class="fas fa-capsules"></i> Active Prescriptions</MenuItem>

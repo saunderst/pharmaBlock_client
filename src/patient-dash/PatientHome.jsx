@@ -9,7 +9,7 @@ import TextField from "material-ui/TextField";
 
 const prescription = {
   prescriptionID: 452356,
-  drugId: 1,
+  drugId: 6,
   dosage: 20,
   frequencyOfDose: 3,
   numberOfDoses: 4
@@ -92,7 +92,6 @@ class PatientHome extends Component {
 
     return (
       <div className="patient-home-container">
-        <h3>Welcome Back {this.props.userName}</h3>
         <div className="add-contract-container">
           <RaisedButton
             label="Add Prescription"
