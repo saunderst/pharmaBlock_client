@@ -26,7 +26,7 @@ class HomePage extends Component {
              
           </div>
         </div>
-
+   
         <MissionStatement />
        
         <Audience />

@@ -64,7 +64,7 @@ class PharmaCompleted extends Component {
     render() {
       return (
     <div className="pharma-completed-container">
-    <h2>Completed Prescriptions</h2>
+    <h2 className="page-headers">Completed Prescriptions</h2>
     <div>
         <Table
           height={this.state.height}

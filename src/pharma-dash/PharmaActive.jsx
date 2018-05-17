@@ -49,7 +49,7 @@ class PharmaActive extends Component {
       render() {
         return (
       <div className="pharma-active-container">
-      <h2>Active Prescription Contracts</h2>
+      <h2 className="page-headers">Active Prescription Contracts</h2>
       <div>
           <Table
             height={this.state.height}

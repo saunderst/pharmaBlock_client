@@ -304,7 +304,11 @@ h1 {
 
 
 .team-container {
-	background-color:gray;
+	background-color:#3c6382;
+	padding-top:10px;
+	padding-bottom:10px;
+	padding-right:10px;
+	padding-left:10px;
 }
 
 
@@ -416,21 +420,22 @@ h1 {
 	
 	  padding-top:30px;
 	  padding-bottom:30px;
+	  background-color:#2E4A62;
+	  padding-left:15px;
+	  padding-right:15px;
 	  
   }
 
- .col-sm-6 {
-	 width:600px;
- }
+
 
  .blocks-gif {
-	 width:1150px;
-	 margin-left:40px;
-	 margin-right:40px;
+	 width:750px;
+	 
  }
 
 .audience-container {
-	margin-left:40px;
+	margin-left:30px;
+	padding-bottom:10px;
 }
 
  #mission-left {
@@ -468,6 +473,121 @@ h1 {
 
 .mission-header {
 	font-size:3em;
+	color:gray;
+	font-weight:bold;
+	text-transform:uppercase;
 	
 }
 
+.mission-statement {
+	text-align:left;
+	color:white;
+}
+
+
+.help-header {
+  color:#2E4A62;
+//   font-weight:bold;
+  font-size:2.5em;
+  text-transform:uppercase;
+}
+
+
+.heading-title {
+    margin-bottom: 100px;
+}
+.text-center {
+    text-align: center;
+}
+
+.p-top-30 {
+    padding-top: 30px;
+}
+.half-txt {
+    width: 60%;
+    margin: 0 auto;
+    display: inline-block;
+    line-height: 25px;
+    color: #7e7e7e;
+}
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+.team-member, .team-member .team-img {
+    position: relative;
+}
+.team-member {
+    overflow: hidden;
+}
+.team-member, .team-member .team-img {
+    position: relative;
+}
+
+.team-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: 0;
+    border: 20px solid rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.90);
+    opacity: 0;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.team-member:hover .team-hover .desk {
+    top: 35%;
+}
+.team-member:hover .team-hover, .team-member:hover .team-hover .desk, .team-member:hover .team-hover .s-link {
+    opacity: 1;
+}
+.team-hover .desk {
+    position: absolute;
+    top: 0%;
+    width: 100%;
+    opacity: 0;
+    -webkit-transform: translateY(-55%);
+    -ms-transform: translateY(-55%);
+    transform: translateY(-55%);
+    -webkit-transition: all 0.3s 0.2s;
+    transition: all 0.3s 0.2s;
+    padding: 0 20px;
+}
+
+
+.team-member .s-link a {
+    margin: 0 10px;
+    color: #333;
+    font-size: 16px;
+}
+.team-title {
+    position: static;
+    padding: 20px 0;
+    display: inline-block;
+    letter-spacing: 2px;
+    width: 100%;
+}
+.team-title h5 {
+    margin-bottom: 0px;
+    display: block;
+    text-transform: uppercase;
+}
+.team-title span {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #a5a5a5;
+    letter-spacing: 1px;
+}
+
+.team-header {
+	font-size:2.5em;
+	margin-left:20px;
+	color:lightslategray;
+	text-transform:uppercase;
+}
+
+.team-hover .desk p {
+	margin-top:28px;
+}

@@ -8,7 +8,7 @@ class Audience extends Component {
     return (
       <div>
         <div className="audience-container">
-          <h2>Who We Help</h2>
+          <h2 className="help-header">Who We Help</h2>
           <div className="row">
             <div className="col-sm-4">
               <h3>Patients</h3>
