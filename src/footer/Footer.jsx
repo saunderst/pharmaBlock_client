@@ -11,7 +11,7 @@ class Footer extends Component {
     return (
       <div>
    
-   <h2>This is a footer</h2>
+   <h2>.</h2>
 
       </div>
     );

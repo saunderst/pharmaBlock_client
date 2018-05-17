@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import Resource from '../models/resource'
+import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import FlatButton from 'material-ui/FlatButton';
+
 
 class PharmaProfile extends Component {
     constructor(props) {
@@ -28,9 +31,9 @@ class PharmaProfile extends Component {
     render() {
       return (
         <div className="pharma-profile-container">
-        <h2>Hello {this.state.companyName}</h2>
-        <h2>Hello {this.state.contactName}</h2>
-        <h2>Hello {this.state.email}</h2>
+       <h2 className="page-headers"> {this.state.companyName} Profile</h2>
+       
+
         </div>
 
       );

@@ -15,17 +15,29 @@ class PharmaHome extends Component {
 
 
     return (
-
+     <div>
       <div className="pharma-home-container">
-        <h2 className="page-headers">GRIFOLS USA </h2>
-        <PharmaSales />
-        <div className="analytics-container">
-          <PharmaHeatmap />
-          <PharmaPieChart />
-          {/* <add props to charts so they get info /> */}
-        </div>
-      </div>
+      <h2 className="company-overview">GRIFOLS USA Overview</h2>
+    
+   
+      
+        <PharmaHeatmap />
+      
 
+
+       <PharmaSales />
+   
+    
+       <PharmaPieChart />
+     
+   
+     
+
+    </div>
+    </div>
+   
+  
+    
     );
   }
 }

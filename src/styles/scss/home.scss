@@ -358,8 +358,11 @@ h1 {
   }
 
   .pharma-home-container{
-	margin-left:280px;
+	padding-left:300px;;
 	margin-top:60px;
+	background-color:#2E4A62;
+	padding-top:20px;
+	height:2100px;
   }
 
 
@@ -398,7 +401,7 @@ h1 {
   }
 
   .section-a-logo {
-	  size:2.7rem;
+	  size:2.7em;
 	  color:#2F4F4F;
 	  padding-left:10px;
 	  line-height: 85px;
@@ -589,5 +592,12 @@ h1 {
 }
 
 .team-hover .desk p {
-	margin-top:28px;
+	margin-top:32px;
 }
+
+.company-overview {
+	color:white;
+	
+	font-size:3em;
+}
+

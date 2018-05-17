@@ -3,11 +3,13 @@ import RaisedButton from 'material-ui/RaisedButton';
 import PieChart from "react-svg-piechart"
 
 const data = [
-  { title: "Advil", value: 100, color: "#22594e" },
-  { title: "Tylenol", value: 60, color: "#2f7d6d" },
-  { title: "Suspicious white powder", value: 30, color: "#3da18d" },
-  { title: "Jagr", value: 20, color: "#69c2b0" },
-  { title: "The good stuff", value: 10, color: "#a1d9ce" },
+  { title: "Diproplex", value: 100, color: "#C71585" },
+  { title: "Asparenol", value: 60, color: "#6495ED" },
+  { title: "Romalamin", value: 30, color: "#3da18d" },
+  { title: "Regobazine", value: 20, color: "#FF7F50" },
+  { title: "Agelinum", value: 10, color: "#a1d9ce" },
+  { title: "Apreroban", value: 10, color: "#7B68EE" },
+  { title: "Factolence", value: 10, color: "#40E0D0" },
 ]
 
 const totalSales = data.reduce(function (a,b) { return a + b.value; }, 0)
@@ -25,6 +27,9 @@ class PharmaPieChart extends Component {
 
     return (
       <div id="piechart-container">
+      <h2 className="analytic-header"> Sales by drug</h2>
+      <hr/>
+       <h3 className="piechart-header" > {this.state.currentTitle}: {Math.trunc(this.state.portion)}% of Sales</h3>
         <PieChart
           data={data}
           expandOnHover={true}
@@ -45,7 +50,7 @@ class PharmaPieChart extends Component {
             }
           }}
         />
-        <h3> {this.state.currentTitle}: {Math.trunc(this.state.portion)}% of Sales</h3>
+    
       </div>
     );
   }

@@ -17,8 +17,12 @@ class PharmaSales extends Component {
 
         return (
             <div id="saleschart">
+             <h2 className="analytic-header"> Monthly Sales</h2>
+             <hr/>
                 <AreaChart ytitle={"Sales (mln. USD)"} colors={["#69c2b0"]} data={data} />
+    
             </div>
+           
         )
     }
 }

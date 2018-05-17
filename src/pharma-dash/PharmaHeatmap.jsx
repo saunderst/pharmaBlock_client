@@ -17,6 +17,8 @@ class PharmaHeatmap extends Component {
 
         return (
             <div id="heatmap">
+            <h2 className="analytic-header">Hot Spots</h2>
+            <hr/>
                 <GeoChart data={[["United States",44],["Germany",23],["Brazil",22],["Canada",21],["China",13], ["India",70]]} colors={[ "#a1d9ce", "#69c2b0" , "#3da18d" , "#2f7d6d", "#22594e"]}/>
             </div>
         )

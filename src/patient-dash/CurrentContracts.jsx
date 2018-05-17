@@ -31,7 +31,7 @@ const styles = {
   }
 };
 
-const contractPics = ["colorpill.jpg", "pill12.jpg", "pill13.jpg", "glitterpill.jpg", "pill9.jpg", "rocketcandy.jpg", "lightpill.jpg", "pinktablet.jpg", "pill7.jpg", "moodpill.jpg", "pill3.jpg", "pill8.jpg", "rocketpill.jpg", "rusticpill.jpg" ]
+const contractPics = ["colorpill.jpg", "pill12.jpg", "pill13.jpg", "glitterpill.jpg", "pill9.jpg", "rocketcandy.jpg", "lightpill.jpg", "pinktablet.jpg", "pill7.jpg", "moodpill.jpg", "pill3.jpg", "pill8.jpg", "rocketpill.jpg", "rusticpill.jpg", "pill10.jpg" ]
 function randomPics(){
   var random = contractPics[Math.floor(Math.random() * contractPics.length)];
   return random
