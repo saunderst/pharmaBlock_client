@@ -17,7 +17,7 @@ const styles = {
   },
   gridList: {
     width: 1000,
-    height: 400,
+    height: 700,
     overflowY: 'auto',
     
   },
@@ -31,9 +31,9 @@ const styles = {
   }
 };
 
-const contractPics = ["colorpill.jpg", "pill12.jpg", "pill13.jpg", "glitterpill.jpg", "pill9.jpg", "rocketcandy.jpg", "lightpill.jpg", "pinktablet.jpg", "pill7.jpg", "moodpill.jpg", "pill3.jpg", "pill8.jpg", "rocketpill.jpg", "rusticpill.jpg" ]
-function randomPics(){
-  var random = contractPics[Math.floor(Math.random() * contractPics.length)];
+const contractPics = ["colorpill.jpg", "pill12.jpg", "pill13.jpg", "glitterpill.jpg", "pill9.jpg", "happypill.jpg", "lightpill.jpg", "pinktablet.jpg", "pill7.jpg", "moodpill.jpg", "pill3.jpg", "pill8.jpg", "rocketpill.jpg", "rusticpill.jpg" ]
+function randomPics(index){
+  var random = contractPics[index];
   return random
 }
 
@@ -70,15 +70,15 @@ class CurrentContracts extends Component {
         <div style={styles.root}>
           <GridList
             cols={4}
-            cellHeight={310}
+            cellHeight={50}
             padding={9}
             style={styles.gridList}>
 
-            {this.state.activeContracts.map((contract) => (
+            {this.state.activeContracts.map((contract, index) => (
               <div className="active-contracts-card" key={contract.cId}>
                 <Card>
                   <CardMedia>
-                    <img src={`/docs/drugs/${randomPics()}`} alt="" style={styles.picture} />
+                    <img src={`/docs/drugs/${randomPics(index)}`} alt="" style={styles.picture} />
                   </CardMedia>
                   <CardTitle title={contract.name} style={styles.card} />
                   <CardText style={styles.card}>

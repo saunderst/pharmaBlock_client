@@ -9,7 +9,7 @@ import TextField from "material-ui/TextField";
 
 const prescription = {
   prescriptionID: 452356,
-  drugId: 3,
+  drugId: 6,
   dosage: 20,
   frequencyOfDose: 3,
   numberOfDoses: 4
