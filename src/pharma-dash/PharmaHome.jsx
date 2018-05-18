@@ -17,7 +17,7 @@ class PharmaHome extends Component {
     return (
      <div>
       <div className="pharma-home-container">
-      <h2 className="company-overview">GRIFOLS USA Overview</h2>
+      <h2 className="company-overview">LighthouseLabs Overview</h2>
     
    
       

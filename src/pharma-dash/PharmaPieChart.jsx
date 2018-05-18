@@ -3,13 +3,13 @@ import RaisedButton from 'material-ui/RaisedButton';
 import PieChart from "react-svg-piechart"
 
 const data = [
-  { title: "Diproplex", value: 100, color: "#C71585" },
-  { title: "Asparenol", value: 60, color: "#6495ED" },
-  { title: "Romalamin", value: 30, color: "#3da18d" },
-  { title: "Regobazine", value: 20, color: "#FF7F50" },
-  { title: "Agelinum", value: 10, color: "#a1d9ce" },
-  { title: "Apreroban", value: 10, color: "#7B68EE" },
-  { title: "Factolence", value: 10, color: "#40E0D0" },
+  { title: "Timanide", value: 100, color: "#C71585" },
+  { title: "Amoxizach", value: 60, color: "#6495ED" },
+  { title: "Kowsheekeron", value: 30, color: "#3da18d" },
+  { title: "Stoshumab", value: 20, color: "#FF7F50" },
+  { title: "Razvanolence", value: 10, color: "#a1d9ce" },
+  { title: "Willmentin", value: 10, color: "#7B68EE" },
+  { title: "Fabiomine", value: 10, color: "#40E0D0" },
 ]
 
 const totalSales = data.reduce(function (a,b) { return a + b.value; }, 0)
