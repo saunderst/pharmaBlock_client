@@ -1,6 +1,7 @@
-# Pharma Block LHL Final Project
+# Pharma.Block LHL Final Project
 
-### PharmaBlock is
+### PharmaBlock_server is the back-end of this project located at:
+https://github.com/maarsej/pharmaBlock_server
 
 
 
