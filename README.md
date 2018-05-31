@@ -1,11 +1,13 @@
-# Pharma.Block LHL Final Project
+# Pharma Block LHL Final Project by josekhon, maarsej and saunderst
 
-### PharmaBlock_server is the back-end of this project located at:
-https://github.com/maarsej/pharmaBlock_server
-
+## PharmaBlock is a proof-of-concept e-commerce solution for the pharmaceutical industry, incorporating smart contracts based on blockchain technology.
 
 
-## Final Product
+### PharmaBlock_server is the back end of this project, located at:
+https://github.com/saunderst/pharmaBlock_server
+
+
+
 !["HomePage"](https://github.com/maarsej/pharmaBlock_client/blob/master/public/docs/app-screenshots/homepage1.png?raw=true)
 !["HomePage2"](https://github.com/maarsej/pharmaBlock_client/blob/master/public/docs/app-screenshots/homepage2.png?raw=true)
 !["Login Page"](https://github.com/maarsej/pharmaBlock_client/blob/master/public/docs/app-screenshots/login.png?raw=true)
@@ -14,13 +16,3 @@ https://github.com/maarsej/pharmaBlock_server
 !["Patient Pending Prescriptions"](https://github.com/maarsej/pharmaBlock_client/blob/master/public/docs/app-screenshots/patientpending.png?raw=true)
 !["Patient Bids](https://github.com/maarsej/pharmaBlock_client/blob/master/public/docs/app-screenshots/patientbids.png?raw=true)
 !["Pharma Products](https://github.com/maarsej/pharmaBlock_client/blob/master/public/docs/app-screenshots/pharmaproducts.png?raw=true)
-
-
-
-## Getting Started
-
-
-## Dependencies
-
-- Node 5.10.x or above
-- NPM 3.8.x or above
